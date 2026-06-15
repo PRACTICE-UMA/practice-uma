@@ -9,186 +9,257 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --green:#1E5245;
-  --green-mid:#2A6B5A;
-  --green-light:#EAF3EF;
-  --amber:#F0A500;
-  --amber-light:#FDF3DC;
-  --bg:#FAFAF8;
+  --navy:#1B3A6B;
+  --navy-mid:#234A89;
+  --navy-light:#EBF0F9;
+  --blue:#2E6DB4;
+  --green:#2D8A4E;
+  --green-light:#E8F5EE;
+  --orange:#E8841A;
+  --orange-light:#FDF1E3;
+  --purple:#7B4F9E;
+  --gradient:linear-gradient(90deg,#1B3A6B,#2E6DB4,#2D8A4E,#E8841A);
+  --bg:#F4F6FA;
   --surface:#FFFFFF;
   --text:#1A2332;
-  --muted:#607080;
-  --border:#D8E2DE;
-  --nav-h:68px;
+  --muted:#5A6A7E;
+  --border:#D4DCE8;
+  --nav-h:70px;
 }
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7}
 
+/* GRADIENT BAR */
+.gradient-bar{height:4px;background:var(--gradient);width:100%}
+
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:rgba(250,250,248,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5%}
-.nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.3rem;color:var(--green);letter-spacing:0.04em;text-decoration:none}
-.nav-logo span{color:var(--amber)}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:0.88rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s}
-.nav-links a:hover{color:var(--green)}
-.nav-uma{font-size:0.78rem;color:var(--muted);font-weight:300}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-gradient{height:3px;background:var(--gradient)}
+.nav-inner{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5%}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}
+.nav-logo img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.nav-logo-text{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--navy);letter-spacing:0.04em}
+.nav-logo-text span{color:var(--orange)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
+.nav-links a:hover{color:var(--navy);border-bottom-color:var(--orange)}
+.nav-uma{font-size:0.75rem;color:var(--muted);font-weight:300;letter-spacing:0.01em}
 
 /* HERO */
-#inicio{padding:calc(var(--nav-h) + 5rem) 5% 5rem;min-height:100vh;display:flex;align-items:center;background:var(--surface);border-bottom:1px solid var(--border)}
-.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.hero-left h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3.5rem,7vw,6rem);line-height:1;color:var(--green);letter-spacing:-0.01em}
-.hero-left h1 .dot{color:var(--amber)}
-.hero-left .tagline{margin-top:1.5rem;font-size:1.1rem;font-weight:300;color:var(--muted);line-height:1.6;max-width:400px}
-.hero-left .tagline strong{font-weight:500;color:var(--text)}
-.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;margin-top:2rem;background:var(--green-light);color:var(--green);font-size:0.8rem;font-weight:500;padding:0.4rem 0.9rem;border-radius:2rem;border:1px solid rgba(30,82,69,0.2)}
-.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--amber)}
-.hero-right{padding-left:2rem;border-left:2px solid var(--green-light)}
-.acronym-row{display:flex;align-items:baseline;gap:1rem;padding:0.55rem 0;border-bottom:1px solid var(--border);opacity:0;transform:translateX(20px);transition:opacity 0.5s ease,transform 0.5s ease}
+#inicio{padding:calc(var(--nav-h) + 4rem) 5% 5rem;min-height:100vh;display:flex;align-items:center;background:var(--surface)}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.hero-left{}
+.hero-logo-badge{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.hero-logo-badge img{width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid var(--border)}
+.hero-logo-info{display:flex;flex-direction:column}
+.hero-logo-info small{font-size:0.75rem;color:var(--muted);font-weight:400;letter-spacing:0.04em;text-transform:uppercase}
+.hero-logo-info strong{font-size:0.9rem;color:var(--navy);font-weight:600}
+.hero-left h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3.5rem,6.5vw,5.5rem);line-height:1;color:var(--navy);letter-spacing:-0.01em}
+.hero-left h1 .dot{color:var(--orange)}
+.hero-tagline{margin-top:1.25rem;font-size:1.05rem;font-weight:300;color:var(--muted);line-height:1.7;max-width:420px}
+.hero-tagline strong{font-weight:500;color:var(--text)}
+.hero-gradient-line{height:3px;background:var(--gradient);border-radius:2px;margin:1.5rem 0;width:80px}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.75rem}
+.btn{display:inline-block;text-decoration:none;font-size:0.88rem;font-weight:500;padding:0.7rem 1.6rem;border-radius:5px;transition:all 0.2s;letter-spacing:0.02em;cursor:pointer}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--navy-mid)}
+.btn-secondary{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+.btn-secondary:hover{background:var(--navy-light)}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-orange:hover{opacity:0.9}
+.hero-right{border-left:2px solid var(--border);padding-left:2.5rem}
+.acronym-row{display:flex;align-items:baseline;gap:1rem;padding:0.6rem 0;border-bottom:1px solid var(--border);opacity:0;transform:translateX(20px);transition:opacity 0.5s ease,transform 0.5s ease}
+.acronym-row:last-child{border-bottom:none}
 .acronym-row.visible{opacity:1;transform:translateX(0)}
-.acronym-letter{font-family:'Playfair Display',serif;font-weight:900;font-size:1.6rem;color:var(--amber);min-width:1.4rem;line-height:1}
-.acronym-word{font-size:0.9rem;font-weight:400;color:var(--text)}
-.acronym-word em{font-style:normal;font-weight:300;color:var(--muted);margin-left:0.3rem;font-size:0.82rem}
-.hero-cta{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-block;text-decoration:none;font-size:0.9rem;font-weight:500;padding:0.75rem 1.75rem;border-radius:4px;transition:all 0.2s;letter-spacing:0.02em}
-.btn-primary{background:var(--green);color:#fff}
-.btn-primary:hover{background:var(--green-mid)}
-.btn-secondary{background:transparent;color:var(--green);border:1.5px solid var(--green)}
-.btn-secondary:hover{background:var(--green-light)}
+.acronym-letter{font-family:'Playfair Display',serif;font-weight:900;font-size:1.7rem;min-width:1.5rem;line-height:1}
+.acronym-row:nth-child(1) .acronym-letter{color:var(--navy)}
+.acronym-row:nth-child(2) .acronym-letter{color:var(--blue)}
+.acronym-row:nth-child(3) .acronym-letter{color:var(--purple)}
+.acronym-row:nth-child(4) .acronym-letter{color:var(--green)}
+.acronym-row:nth-child(5) .acronym-letter{color:var(--blue)}
+.acronym-row:nth-child(6) .acronym-letter{color:var(--green)}
+.acronym-row:nth-child(7) .acronym-letter{color:var(--navy)}
+.acronym-row:nth-child(8) .acronym-letter{color:var(--orange)}
+.acronym-word{font-size:0.88rem;font-weight:500;color:var(--text)}
+.acronym-word em{font-style:normal;font-weight:300;color:var(--muted);margin-left:0.3rem;font-size:0.8rem}
 
-/* SECTIONS SHARED */
+/* SHARED */
 section{padding:5rem 5%}
 .section-inner{max-width:1100px;margin:0 auto;width:100%}
-.section-eyebrow{font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);margin-bottom:0.75rem}
-.section-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--green);line-height:1.2;margin-bottom:1.5rem}
-.section-lead{font-size:1.05rem;font-weight:300;color:var(--muted);max-width:680px;line-height:1.8}
+.section-eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:0.65rem}
+.section-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.75rem,3vw,2.4rem);color:var(--navy);line-height:1.2;margin-bottom:1.25rem}
+.section-lead{font-size:1rem;font-weight:300;color:var(--muted);max-width:680px;line-height:1.8}
 
-/* SOBRE NOSOTROS */
-#sobre{background:var(--green);color:#fff}
-#sobre .section-eyebrow{color:var(--amber)}
+/* SOBRE */
+#sobre{background:var(--navy);color:#fff}
+#sobre .section-eyebrow{color:var(--orange)}
 #sobre .section-title{color:#fff}
 .sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
-.sobre-quote{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;line-height:1.4;color:rgba(255,255,255,0.95);border-left:4px solid var(--amber);padding-left:1.5rem}
-.sobre-text p{font-weight:300;color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:1rem;font-size:0.97rem}
-.sobre-ejes{margin-top:2rem;display:flex;flex-wrap:wrap;gap:0.5rem}
-.eje-tag{background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.9);font-size:0.78rem;padding:0.3rem 0.75rem;border-radius:2rem;font-weight:400;border:1px solid rgba(255,255,255,0.2)}
+.sobre-quote{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;line-height:1.5;color:rgba(255,255,255,0.95);border-left:4px solid var(--orange);padding-left:1.5rem;margin-bottom:2rem}
+.sobre-ejes{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem}
+.eje-tag{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.88);font-size:0.77rem;padding:0.3rem 0.8rem;border-radius:2rem;border:1px solid rgba(255,255,255,0.2);font-weight:400}
+.sobre-text p{font-weight:300;color:rgba(255,255,255,0.82);line-height:1.85;margin-bottom:1rem;font-size:0.96rem}
 
 /* LÍNEAS */
 #lineas{background:var(--bg)}
-.lineas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:3rem}
+.lineas-intro{display:grid;grid-template-columns:2fr 1fr;gap:3rem;align-items:center;margin-bottom:3rem}
+.lineas-arte-note{background:linear-gradient(135deg,var(--purple),#9B6DC0);border-radius:8px;padding:1.5rem;color:#fff}
+.lineas-arte-note strong{display:block;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.75;margin-bottom:0.4rem}
+.lineas-arte-note p{font-size:0.88rem;font-weight:300;line-height:1.6;opacity:0.9}
+.lineas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
 .linea-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.75rem;transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden}
-.linea-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green)}
-.linea-card:nth-child(2)::before{background:var(--amber)}
-.linea-card:nth-child(3)::before{background:#3B82C4}
-.linea-card:nth-child(4)::before{background:#9B59B6}
-.linea-card:nth-child(5)::before{background:#E67E22}
-.linea-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(30,82,69,0.1)}
-.linea-num{font-family:'Playfair Display',serif;font-weight:900;font-size:2.5rem;color:var(--green-light);line-height:1;margin-bottom:0.5rem}
-.linea-card:nth-child(2) .linea-num{color:#FDF3DC}
-.linea-card:nth-child(3) .linea-num{color:#EBF3FB}
-.linea-card:nth-child(4) .linea-num{color:#F5EEF8}
-.linea-card:nth-child(5) .linea-num{color:#FEF9E7}
+.linea-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.linea-card:nth-child(1)::before{background:var(--navy)}
+.linea-card:nth-child(2)::before{background:var(--green)}
+.linea-card:nth-child(3)::before{background:var(--purple)}
+.linea-card:nth-child(4)::before{background:var(--blue)}
+.linea-card:nth-child(5)::before{background:var(--orange)}
+.linea-card:nth-child(6)::before{background:var(--green)}
+.linea-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(27,58,107,0.1)}
+.linea-num{font-family:'Playfair Display',serif;font-weight:900;font-size:2.2rem;line-height:1;margin-bottom:0.5rem;opacity:0.1;color:var(--navy)}
+.linea-tag{display:inline-block;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2rem;margin-bottom:0.75rem}
+.linea-card:nth-child(1) .linea-tag{background:var(--navy-light);color:var(--navy)}
+.linea-card:nth-child(2) .linea-tag{background:var(--green-light);color:var(--green)}
+.linea-card:nth-child(3) .linea-tag{background:#F3EDF8;color:var(--purple)}
+.linea-card:nth-child(4) .linea-tag{background:#EBF3FB;color:var(--blue)}
+.linea-card:nth-child(5) .linea-tag{background:var(--orange-light);color:var(--orange)}
+.linea-card:nth-child(6) .linea-tag{background:var(--green-light);color:var(--green)}
 .linea-title{font-weight:600;font-size:1rem;color:var(--text);margin-bottom:0.75rem;line-height:1.3}
-.linea-desc{font-size:0.88rem;color:var(--muted);font-weight:300;line-height:1.7}
+.linea-desc{font-size:0.87rem;color:var(--muted);font-weight:300;line-height:1.75}
+.linea-conexiones{margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--border)}
+.linea-conexiones span{font-size:0.72rem;color:var(--muted);font-weight:400}
 
 /* METODOLOGÍA */
-#metodologia{background:var(--amber-light);border-top:1px solid rgba(240,165,0,0.2);border-bottom:1px solid rgba(240,165,0,0.2)}
+#metodologia{background:var(--navy-light);border-top:1px solid rgba(27,58,107,0.1)}
 .met-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
-.met-item{text-align:center;padding:1.5rem}
+.met-item{background:var(--surface);border-radius:8px;padding:1.75rem;border:1px solid var(--border);text-align:center}
 .met-icon{font-size:2rem;margin-bottom:0.75rem}
-.met-label{font-weight:600;font-size:0.95rem;color:var(--text);margin-bottom:0.5rem}
-.met-desc{font-size:0.85rem;color:var(--muted);font-weight:300;line-height:1.6}
+.met-label{font-weight:600;font-size:0.95rem;color:var(--navy);margin-bottom:0.5rem}
+.met-desc{font-size:0.85rem;color:var(--muted);font-weight:300;line-height:1.65}
 
 /* TRANSFERENCIA */
 #transferencia{background:var(--surface)}
 .transf-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;align-items:start}
-.transf-text p{font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:1.25rem;font-size:0.97rem}
-.servicios-list{list-style:none;display:flex;flex-direction:column;gap:0.75rem}
-.servicios-list li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.92rem;color:var(--text);font-weight:400;line-height:1.5}
-.servicios-list li::before{content:'→';color:var(--amber);font-weight:600;flex-shrink:0;margin-top:0.1rem}
+.transf-text p{font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:1.25rem;font-size:0.96rem}
+.servicios-list{list-style:none;display:flex;flex-direction:column;gap:0.85rem}
+.servicios-list li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.91rem;color:var(--text);line-height:1.5;padding:0.75rem;background:var(--bg);border-radius:6px;border-left:3px solid var(--navy)}
+.servicios-list li:nth-child(2){border-left-color:var(--green)}
+.servicios-list li:nth-child(3){border-left-color:var(--blue)}
+.servicios-list li:nth-child(4){border-left-color:var(--purple)}
+.servicios-list li:nth-child(5){border-left-color:var(--orange)}
+.servicios-list li:nth-child(6){border-left-color:var(--navy)}
+.servicios-list li:nth-child(7){border-left-color:var(--green)}
+.servicios-list li:nth-child(8){border-left-color:var(--blue)}
 
 /* EQUIPO */
 #equipo{background:var(--bg)}
-.equipo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3rem}
-.miembro-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.75rem;text-align:center}
-.miembro-avatar{width:72px;height:72px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.4rem;margin:0 auto 1rem}
-.miembro-name{font-weight:600;font-size:1rem;color:var(--text);margin-bottom:0.25rem}
-.miembro-role{font-size:0.82rem;color:var(--amber);font-weight:500;margin-bottom:0.5rem;letter-spacing:0.02em}
-.miembro-dept{font-size:0.82rem;color:var(--muted);font-weight:300;line-height:1.5}
-.miembro-card.placeholder{border-style:dashed;background:transparent}
-.miembro-card.placeholder .miembro-avatar{background:var(--border);color:var(--muted);font-size:1.5rem}
-.miembro-card.placeholder .miembro-name{color:var(--muted);font-weight:400;font-style:italic}
+.equipo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.25rem;margin-top:3rem}
+.miembro-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.5rem;text-align:center;transition:transform 0.2s,box-shadow 0.2s}
+.miembro-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(27,58,107,0.08)}
+.miembro-avatar{width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;margin:0 auto 1rem;color:#fff}
+.miembro-card:nth-child(1) .miembro-avatar{background:var(--navy)}
+.miembro-card:nth-child(2) .miembro-avatar{background:var(--blue)}
+.miembro-card:nth-child(3) .miembro-avatar{background:var(--green)}
+.miembro-card:nth-child(4) .miembro-avatar{background:var(--purple)}
+.miembro-card:nth-child(5) .miembro-avatar{background:var(--orange)}
+.miembro-card:nth-child(6) .miembro-avatar{background:var(--navy-mid)}
+.miembro-card:nth-child(7) .miembro-avatar{background:var(--green)}
+.miembro-name{font-weight:600;font-size:0.95rem;color:var(--text);margin-bottom:0.25rem;line-height:1.3}
+.miembro-role{font-size:0.78rem;font-weight:500;margin-bottom:0.4rem;letter-spacing:0.02em}
+.miembro-card:nth-child(1) .miembro-role{color:var(--navy)}
+.miembro-card:nth-child(n+2) .miembro-role{color:var(--blue)}
+.miembro-dept{font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5}
 
 /* CONTACTO */
-#contacto{background:var(--green);color:#fff}
-#contacto .section-eyebrow{color:var(--amber)}
+#contacto{background:var(--navy);color:#fff}
+#contacto .section-eyebrow{color:var(--orange)}
 #contacto .section-title{color:#fff}
 .contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
-.contacto-info h3{font-weight:600;font-size:1rem;color:rgba(255,255,255,0.6);letter-spacing:0.06em;text-transform:uppercase;font-size:0.78rem;margin-bottom:1.5rem}
 .contacto-dato{display:flex;flex-direction:column;margin-bottom:1.5rem}
-.contacto-dato span:first-child{font-size:0.78rem;font-weight:400;color:rgba(255,255,255,0.55);letter-spacing:0.04em;margin-bottom:0.25rem}
-.contacto-dato span:last-child{font-size:1rem;font-weight:400;color:rgba(255,255,255,0.95)}
-.contacto-dato a{color:var(--amber);text-decoration:none;font-size:1rem}
-.contacto-dato a:hover{text-decoration:underline}
-.contacto-map{background:rgba(255,255,255,0.1);border-radius:8px;padding:2rem;border:1px solid rgba(255,255,255,0.15)}
-.contacto-map p{font-size:0.9rem;color:rgba(255,255,255,0.8);font-weight:300;line-height:1.7;margin-bottom:1rem}
-.colabs{margin-top:1.5rem}
-.colabs-title{font-size:0.78rem;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.5);text-transform:uppercase;margin-bottom:0.75rem}
-.colab-tag{display:inline-block;background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.85);font-size:0.8rem;padding:0.25rem 0.7rem;border-radius:2rem;margin:0.25rem;border:1px solid rgba(255,255,255,0.2)}
+.contacto-dato label{font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.25rem}
+.contacto-dato span{font-size:0.97rem;font-weight:400;color:rgba(255,255,255,0.92)}
+.contacto-dato a{color:var(--orange);text-decoration:none;font-size:0.97rem;transition:opacity 0.2s}
+.contacto-dato a:hover{opacity:0.8;text-decoration:underline}
+.contacto-redes{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap}
+.red-btn{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.88);font-size:0.85rem;font-weight:500;padding:0.6rem 1.2rem;border-radius:4px;text-decoration:none;border:1px solid rgba(255,255,255,0.2);transition:all 0.2s}
+.red-btn:hover{background:rgba(255,255,255,0.18)}
+.contacto-box{background:rgba(255,255,255,0.08);border-radius:8px;padding:2rem;border:1px solid rgba(255,255,255,0.12)}
+.contacto-box p{font-size:0.9rem;color:rgba(255,255,255,0.78);font-weight:300;line-height:1.8;margin-bottom:1rem}
+.colabs-title{font-size:0.72rem;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.45);text-transform:uppercase;margin:1.25rem 0 0.6rem}
+.colab-tag{display:inline-block;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.82);font-size:0.78rem;padding:0.25rem 0.65rem;border-radius:2rem;margin:0.2rem;border:1px solid rgba(255,255,255,0.18)}
 
 /* FOOTER */
-footer{background:#111D17;padding:2.5rem 5%;text-align:center}
-.footer-inner{max-width:1100px;margin:0 auto}
-.footer-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1.1rem;color:rgba(255,255,255,0.7);letter-spacing:0.04em;margin-bottom:0.5rem}
-.footer-logo span{color:var(--amber)}
-footer p{font-size:0.8rem;color:rgba(255,255,255,0.35);font-weight:300;line-height:1.6}
-footer a{color:rgba(255,255,255,0.5);text-decoration:none}
-footer a:hover{color:var(--amber)}
+footer{background:#0F2044}
+.footer-gradient{height:3px;background:var(--gradient)}
+.footer-inner{max-width:1100px;margin:0 auto;padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1rem;color:rgba(255,255,255,0.6);letter-spacing:0.04em}
+.footer-logo span{color:var(--orange)}
+footer p{font-size:0.78rem;color:rgba(255,255,255,0.3);font-weight:300}
+footer a{color:rgba(255,255,255,0.45);text-decoration:none}
+footer a:hover{color:var(--orange)}
 
-/* RESPONSIVE */
+/* SCROLL ANIMATION */
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity 0.55s ease,transform 0.55s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
 @media(max-width:768px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero-right{padding-left:0;border-left:none;border-top:2px solid var(--green-light);padding-top:2rem}
-  .sobre-grid,.lineas-row,.met-grid,.transf-grid,.contacto-grid{grid-template-columns:1fr}
-  .nav-links{display:none}
+  .hero-inner,.sobre-grid,.met-grid,.transf-grid,.contacto-grid{grid-template-columns:1fr}
+  .hero-right{padding-left:0;border-left:none;border-top:2px solid var(--border);padding-top:2rem}
+  .nav-links,.nav-uma{display:none}
+  .footer-inner{flex-direction:column;text-align:center}
+  #ecosistema > .section-inner > div{grid-template-columns:1fr !important}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#inicio"><img src="logo.png" alt="PRACTICE" style="height:44px;width:44px;border-radius:50%;object-fit:cover;margin-right:0.5rem;vertical-align:middle">PRACTICE<span>·</span></a>
-  <ul class="nav-links">
-    <li><a href="#sobre">Quiénes somos</a></li>
-    <li><a href="#lineas">Líneas de investigación</a></li>
-    <li><a href="#transferencia">Transferencia</a></li>
-    <li><a href="#equipo">Equipo</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-  <span class="nav-uma">Universidad de Málaga</span>
+  <div class="nav-gradient"></div>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#inicio">
+      <img src="logo.png" alt="PRACTICE">
+      <span class="nav-logo-text">PRACTICE<span>·</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Quiénes somos</a></li>
+      <li><a href="#lineas">Líneas de investigación</a></li>
+      <li><a href="#transferencia">Transferencia</a></li>
+      <li><a href="#equipo">Equipo</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <span class="nav-uma">Universidad de Málaga</span>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section id="inicio">
   <div class="hero-inner">
     <div class="hero-left">
+      <div class="hero-logo-badge">
+        <img src="logo.png" alt="Logo PRACTICE">
+        <div class="hero-logo-info">
+          <small>Grupo de I+D · UMA</small>
+          <strong>Ciencias de la Educación</strong>
+        </div>
+      </div>
       <h1>PRACTICE<span class="dot">.</span></h1>
-      <img src="logo.png" alt="Logo PRACTICE" style="width:120px;height:120px;border-radius:50%;object-fit:cover;margin-top:1.5rem;border:3px solid var(--green-light)">
-      <p class="tagline">Investigación aplicada para la <strong>transformación educativa, social y laboral</strong> contemporánea.</p>
-      <div class="hero-badge">Grupo de I+D · Ciencias de la Educación · UMA</div>
+      <div class="hero-gradient-line"></div>
+      <p class="hero-tagline">Investigación aplicada para la <strong>transformación educativa, social, artística y laboral</strong>. Pedagogía, Arte, Comunidad, Tecnología, Igualdad y Empleo al servicio de la sociedad.</p>
       <div class="hero-cta">
-        <a href="#lineas" class="btn btn-primary">Ver líneas de investigación</a>
+        <a href="#lineas" class="btn btn-primary">Líneas de investigación</a>
         <a href="#contacto" class="btn btn-secondary">Contactar</a>
       </div>
     </div>
     <div class="hero-right">
       <div class="acronym-row"><span class="acronym-letter">P</span><span class="acronym-word">Pedagogía <em>laboral y formación</em></span></div>
       <div class="acronym-row"><span class="acronym-letter">R</span><span class="acronym-word">Relación con Asociaciones <em>y entorno</em></span></div>
-      <div class="acronym-row"><span class="acronym-letter">A</span><span class="acronym-word">Acción socioeducativa <em>e intervención</em></span></div>
+      <div class="acronym-row"><span class="acronym-letter">A</span><span class="acronym-word">Arte <em>creatividad y expresión</em></span></div>
       <div class="acronym-row"><span class="acronym-letter">C</span><span class="acronym-word">Comunidad <em>y desarrollo local</em></span></div>
       <div class="acronym-row"><span class="acronym-letter">T</span><span class="acronym-word">Tecnologías <em>de la información y comunicación</em></span></div>
       <div class="acronym-row"><span class="acronym-letter">I</span><span class="acronym-word">Igualdad <em>diversidad y justicia social</em></span></div>
       <div class="acronym-row"><span class="acronym-letter">C</span><span class="acronym-word">Conocimiento <em>evidencia científica</em></span></div>
-      <div class="acronym-row"><span class="acronym-letter">E</span><span class="acronym-word">Empleo <em>orientación profesional y transferencia</em></span></div>
+      <div class="acronym-row"><span class="acronym-letter">E</span><span class="acronym-word">Empleo <em>orientación y transferencia</em></span></div>
     </div>
   </div>
 </section>
@@ -200,9 +271,10 @@ footer a:hover{color:var(--amber)}
     <h2 class="section-title">Un grupo comprometido con la transformación real</h2>
     <div class="sobre-grid">
       <div>
-        <blockquote class="sobre-quote">«La investigación como práctica transformadora: donde la formación, la inclusión, la tecnología y la empleabilidad producen conocimiento con impacto real.»</blockquote>
-        <div class="sobre-ejes" style="margin-top:2rem">
+        <blockquote class="sobre-quote">«La investigación como práctica transformadora: donde la pedagogía, el arte, la tecnología y la empleabilidad generan conocimiento con impacto real.»</blockquote>
+        <div class="sobre-ejes">
           <span class="eje-tag">Pedagogía laboral</span>
+          <span class="eje-tag">Arte y creatividad</span>
           <span class="eje-tag">Inclusión social</span>
           <span class="eje-tag">TIC y competencia digital</span>
           <span class="eje-tag">Igualdad de género</span>
@@ -213,9 +285,59 @@ footer a:hover{color:var(--amber)}
         </div>
       </div>
       <div class="sobre-text">
-        <p>PRACTICE (Pedagogía Laboral, Comunidad, TIC, Igualdad y Empleo) es un grupo de investigación adscrito al área de Ciencias de la Educación de la Universidad de Málaga, impulsado por la profesora Esther Mena.</p>
-        <p>Nace con el objetivo de promover la investigación aplicada, la innovación educativa y la transferencia de conocimiento para responder a los desafíos sociales, formativos y laborales contemporáneos.</p>
-        <p>PRACTICE entiende la investigación como una práctica transformadora en la que la formación, la inclusión, la tecnología y la empleabilidad se articulan para generar conocimiento con impacto real. Su identidad integradora, simbolizada en su nombre, refleja un ecosistema interdisciplinar orientado a soluciones innovadoras y sostenibles.</p>
+        <p>PRACTICE (Pedagogía Laboral, Arte, Comunidad, TIC, Igualdad y Empleo) es un grupo de investigación adscrito al área de Ciencias de la Educación de la Universidad de Málaga, impulsado por la Dra. Esther Mena.</p>
+        <p>Nace con el objetivo de promover la investigación aplicada, la innovación educativa y la transferencia de conocimiento para responder a los desafíos sociales, formativos, artísticos y laborales contemporáneos.</p>
+        <p>PRACTICE entiende la investigación como una práctica transformadora en la que la formación, el arte, la inclusión, la tecnología y la empleabilidad se articulan para generar conocimiento con impacto real en la sociedad.</p>
+        <p>Su identidad integradora —simbolizada en su nombre— refleja un ecosistema interdisciplinar orientado a soluciones innovadoras, creativas y sostenibles que acercan la universidad a la comunidad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSISTEMA -->
+<section id="ecosistema" style="background:var(--navy);padding:5rem 5%;color:#fff">
+  <div class="section-inner">
+    <p class="section-eyebrow" style="color:var(--orange)">Un enfoque integrador</p>
+    <h2 class="section-title" style="color:#fff">Un ecosistema de conocimiento interconectado</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;align-items:start">
+      <div>
+        <p style="font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.85);line-height:1.85;margin-bottom:1.25rem">PRACTICE nace de la convicción de que los grandes retos sociales no se resuelven desde una sola disciplina. La <strong style="color:#fff;font-weight:500">pedagogía laboral</strong>, el <strong style="color:#fff;font-weight:500">arte y la creatividad</strong>, la <strong style="color:#fff;font-weight:500">comunidad</strong>, las <strong style="color:#fff;font-weight:500">tecnologías</strong>, la <strong style="color:#fff;font-weight:500">igualdad</strong> y el <strong style="color:#fff;font-weight:500">empleo</strong> no son compartimentos estancos: son dimensiones que se cruzan, se alimentan y se potencian mutuamente en la realidad de las personas.</p>
+        <p style="font-size:0.96rem;font-weight:300;color:rgba(255,255,255,0.72);line-height:1.85;margin-bottom:1.25rem">El grupo investiga en los puntos de intersección: cómo el arte transforma la formación laboral, cómo la tecnología democratiza la participación comunitaria, cómo la igualdad es condición necesaria para el empleo digno, cómo la creatividad abre nuevas formas de inclusión que la ciencia tradicional no alcanza a ver.</p>
+        <p style="font-size:0.96rem;font-weight:300;color:rgba(255,255,255,0.72);line-height:1.85">Esa mirada transversal —científica, creativa, comprometida— es lo que define a PRACTICE y lo que hace única su aportación a la investigación educativa y social en la Universidad de Málaga.</p>
+      </div>
+      <div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.25rem;border-top:3px solid var(--navy-mid)">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem">📚</div>
+            <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.35rem;letter-spacing:0.02em">Pedagogía Laboral</div>
+            <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5">Formación, competencias y aprendizaje a lo largo de la vida</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.25rem;border-top:3px solid var(--purple)">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem">🎨</div>
+            <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.35rem;letter-spacing:0.02em">Arte y Creatividad</div>
+            <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5">Expresión, metodologías artísticas y transformación social</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.25rem;border-top:3px solid var(--green)">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem">🤝</div>
+            <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.35rem;letter-spacing:0.02em">Comunidad</div>
+            <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5">Participación, inclusión y desarrollo local</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.25rem;border-top:3px solid var(--blue)">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem">💻</div>
+            <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.35rem;letter-spacing:0.02em">Tecnologías (TIC)</div>
+            <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5">Competencia digital e innovación educativa</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.25rem;border-top:3px solid #C0392B">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem">⚖️</div>
+            <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.35rem;letter-spacing:0.02em">Igualdad</div>
+            <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5">Diversidad, género y justicia social</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.25rem;border-top:3px solid var(--orange)">
+            <div style="font-size:1.5rem;margin-bottom:0.5rem">💼</div>
+            <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.35rem;letter-spacing:0.02em">Empleo</div>
+            <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5">Orientación profesional y transferencia</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -225,33 +347,47 @@ footer a:hover{color:var(--amber)}
 <section id="lineas">
   <div class="section-inner">
     <p class="section-eyebrow">Ciencia con propósito</p>
-    <h2 class="section-title">Cinco líneas de investigación</h2>
-    <p class="section-lead">La actividad científica de PRACTICE se estructura en torno a cinco líneas estratégicas que abarcan desde la formación para el empleo hasta la justicia social y la innovación tecnológica.</p>
-    <div class="lineas-grid">
-      <div class="linea-card">
+    <h2 class="section-title">Seis líneas de investigación</h2>
+    <p class="section-lead">La actividad científica de PRACTICE se estructura en torno a seis líneas estratégicas que integran desde la formación para el empleo hasta el arte, la justicia social y la innovación tecnológica.</p>
+    <div class="lineas-grid" style="margin-top:2.5rem">
+      <div class="linea-card fade-in">
         <div class="linea-num">01</div>
+        <span class="linea-tag">Pedagogía</span>
         <h3 class="linea-title">Pedagogía laboral y formación para el empleo</h3>
-        <p class="linea-desc">Diseño y evaluación de programas formativos, aprendizaje permanente y desarrollo de competencias profesionales orientadas a la empleabilidad.</p>
+        <p class="linea-desc">Diseño y evaluación de programas formativos, aprendizaje permanente y desarrollo de competencias profesionales. El arte enriquece estas metodologías a través de enfoques creativos y vivenciales que potencian el aprendizaje.</p>
       </div>
-      <div class="linea-card">
+      <div class="linea-card fade-in">
         <div class="linea-num">02</div>
+        <span class="linea-tag">Comunidad</span>
         <h3 class="linea-title">Comunidad, participación e inclusión social</h3>
-        <p class="linea-desc">Intervención socioeducativa, desarrollo comunitario e inclusión de colectivos en situación de vulnerabilidad.</p>
+        <p class="linea-desc">Intervención socioeducativa, desarrollo comunitario e inclusión de colectivos vulnerables. El arte comunitario —murales, teatro participativo, narrativas colectivas— se convierte en herramienta de cohesión y transformación.</p>
       </div>
-      <div class="linea-card">
+      <div class="linea-card fade-in">
         <div class="linea-num">03</div>
-        <h3 class="linea-title">Tecnologías de la Información y la Comunicación</h3>
-        <p class="linea-desc">Competencia digital, innovación tecnológica y aprendizaje híbrido como herramientas para la transformación educativa y social.</p>
+        <span class="linea-tag">Arte</span>
+        <h3 class="linea-title">Arte, creatividad y expresión socioeducativa</h3>
+        <p class="linea-desc">Metodologías artísticas aplicadas a la educación y la intervención social: arteterapia, expresión corporal, narrativas visuales, teatro social y arte digital como vías de conocimiento, comunicación y transformación.</p>
+        <div class="linea-conexiones">
+          <span>Conecta con todas las demás líneas como método transversal →</span>
+        </div>
       </div>
-      <div class="linea-card">
+      <div class="linea-card fade-in">
         <div class="linea-num">04</div>
-        <h3 class="linea-title">Igualdad, diversidad y justicia social</h3>
-        <p class="linea-desc">Perspectiva de género, equidad y análisis de desigualdades sociolaborales desde un enfoque basado en la evidencia científica.</p>
+        <span class="linea-tag">TIC</span>
+        <h3 class="linea-title">Tecnologías de la Información y la Comunicación</h3>
+        <p class="linea-desc">Competencia digital, innovación tecnológica y aprendizaje híbrido. El arte digital y la creatividad tecnológica amplían las posibilidades de la educación y la comunicación para el cambio social.</p>
       </div>
-      <div class="linea-card">
+      <div class="linea-card fade-in">
         <div class="linea-num">05</div>
+        <span class="linea-tag">Igualdad</span>
+        <h3 class="linea-title">Igualdad, diversidad y justicia social</h3>
+        <p class="linea-desc">Perspectiva de género, equidad y análisis de desigualdades sociolaborales. El arte feminista, la representación y la diversidad cultural enriquecen los enfoques de igualdad desde la evidencia científica.</p>
+      </div>
+      <div class="linea-card fade-in">
+        <div class="linea-num">06</div>
+        <span class="linea-tag">Empleo</span>
         <h3 class="linea-title">Empleo, orientación profesional y transferencia</h3>
-        <p class="linea-desc">Empleabilidad, políticas de empleo y relación entre universidad, sociedad y tejido productivo para un impacto tangible en el mercado laboral.</p>
+        <p class="linea-desc">Empleabilidad, políticas de empleo y relación universidad-sociedad. Las industrias creativas y el emprendimiento cultural abren nuevos horizontes laborales en la intersección entre arte, tecnología y comunidad.</p>
       </div>
     </div>
   </div>
@@ -263,20 +399,20 @@ footer a:hover{color:var(--amber)}
     <p class="section-eyebrow">Cómo investigamos</p>
     <h2 class="section-title">Metodologías innovadoras e interdisciplinares</h2>
     <div class="met-grid">
-      <div class="met-item">
+      <div class="met-item fade-in">
         <div class="met-icon">📊</div>
         <div class="met-label">Cuantitativa y cualitativa</div>
-        <p class="met-desc">Combinamos enfoques cuantitativos, cualitativos y mixtos para obtener una visión rigurosa y completa de la realidad.</p>
+        <p class="met-desc">Combinamos enfoques cuantitativos, cualitativos y mixtos para obtener una visión rigurosa y completa de la realidad social y educativa.</p>
       </div>
-      <div class="met-item">
+      <div class="met-item fade-in">
+        <div class="met-icon">🎨</div>
+        <div class="met-label">Metodologías artísticas</div>
+        <p class="met-desc">Empleamos metodologías basadas en las artes (Arts-Based Research) para acceder a dimensiones de la experiencia que otros enfoques no alcanzan.</p>
+      </div>
+      <div class="met-item fade-in">
         <div class="met-icon">🤝</div>
-        <div class="met-label">Investigación-acción</div>
-        <p class="met-desc">La evaluación participativa y los enfoques colaborativos son clave para generar conocimiento útil y directamente aplicable.</p>
-      </div>
-      <div class="met-item">
-        <div class="met-icon">🔬</div>
-        <div class="met-label">Basada en evidencia</div>
-        <p class="met-desc">Producimos conocimiento científicamente riguroso que sirve de base para la toma de decisiones en políticas educativas y laborales.</p>
+        <div class="met-label">Investigación-acción participativa</div>
+        <p class="met-desc">La evaluación participativa y los enfoques colaborativos con la comunidad generan conocimiento útil y directamente aplicable.</p>
       </div>
     </div>
   </div>
@@ -290,22 +426,20 @@ footer a:hover{color:var(--amber)}
     <div class="transf-grid">
       <div class="transf-text">
         <p>Uno de los rasgos más distintivos de PRACTICE es su vocación por la transferencia del conocimiento y la colaboración con administraciones públicas, entidades sociales, asociaciones y organizaciones del tercer sector.</p>
-        <p>El grupo aspira a convertirse en un espacio de encuentro entre universidad y sociedad, favoreciendo redes de colaboración que contribuyan a mejorar la empleabilidad, la inclusión social y la innovación educativa desde la evidencia científica.</p>
-        <p>Si tu organización o institución trabaja en los ámbitos de la educación, el empleo o la inclusión, estaremos encantados de explorar posibilidades de colaboración.</p>
+        <p>El grupo aspira a convertirse en un espacio de encuentro entre universidad y sociedad, favoreciendo redes de colaboración que contribuyan a mejorar la empleabilidad, la inclusión social, la creatividad y la innovación educativa desde la evidencia científica.</p>
+        <p>Si tu organización trabaja en los ámbitos de la educación, el empleo, el arte o la inclusión, estaremos encantados de explorar posibilidades de colaboración.</p>
         <a href="#contacto" class="btn btn-primary" style="margin-top:1rem">Contactar para colaborar</a>
       </div>
-      <div>
-        <ul class="servicios-list">
-          <li>Asesoramiento especializado en formación, empleo e igualdad</li>
-          <li>Diseño y evaluación de proyectos de investigación e innovación</li>
-          <li>Estudios diagnósticos y análisis de necesidades formativas y laborales</li>
-          <li>Desarrollo de recursos educativos y tecnológicos</li>
-          <li>Formación especializada para profesionales, instituciones y organizaciones</li>
-          <li>Acompañamiento en proyectos de intervención socioeducativa</li>
-          <li>Consultoría en perspectiva de género e igualdad de oportunidades</li>
-          <li>Evaluación de programas de inserción laboral y empleabilidad</li>
-        </ul>
-      </div>
+      <ul class="servicios-list">
+        <li>Asesoramiento especializado en formación, empleo e igualdad</li>
+        <li>Diseño y evaluación de proyectos de investigación e innovación</li>
+        <li>Estudios diagnósticos y análisis de necesidades formativas y laborales</li>
+        <li>Proyectos de arte comunitario e intervención socioeducativa creativa</li>
+        <li>Formación especializada en metodologías artísticas y TIC educativas</li>
+        <li>Consultoría en perspectiva de género e igualdad de oportunidades</li>
+        <li>Desarrollo de recursos educativos, digitales y culturales</li>
+        <li>Evaluación de programas de inserción laboral y empleabilidad</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -315,30 +449,48 @@ footer a:hover{color:var(--amber)}
   <div class="section-inner">
     <p class="section-eyebrow">Las personas detrás</p>
     <h2 class="section-title">Equipo de investigación</h2>
-    <p class="section-lead">Un grupo interdisciplinar comprometido con la investigación aplicada y la transformación social.</p>
+    <p class="section-lead">Un grupo interdisciplinar comprometido con la investigación aplicada y la transformación social, artística y educativa.</p>
     <div class="equipo-grid">
-      <div class="miembro-card">
+      <div class="miembro-card fade-in">
         <div class="miembro-avatar">EM</div>
         <div class="miembro-name">Dra. Esther Mena Rodríguez</div>
         <div class="miembro-role">Investigadora Principal</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
       </div>
-      <div class="miembro-card">
+      <div class="miembro-card fade-in">
         <div class="miembro-avatar">AR</div>
         <div class="miembro-name">Adrián Ruiz Tienda</div>
         <div class="miembro-role">Investigador</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
       </div>
-      <div class="miembro-card">
+      <div class="miembro-card fade-in">
         <div class="miembro-avatar">DA</div>
         <div class="miembro-name">Diego Aguilar Cuenca</div>
         <div class="miembro-role">Investigador</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
       </div>
-      <div class="miembro-card">
+      <div class="miembro-card fade-in">
+        <div class="miembro-avatar">EC</div>
+        <div class="miembro-name">Estefanía Cestino González</div>
+        <div class="miembro-role">Investigadora</div>
+        <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
+      </div>
+      <div class="miembro-card fade-in">
+        <div class="miembro-avatar">EI</div>
+        <div class="miembro-name">Estela Isequilla Alarcón</div>
+        <div class="miembro-role">Investigadora</div>
+        <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
+      </div>
+      <div class="miembro-card fade-in">
         <div class="miembro-avatar">FG</div>
         <div class="miembro-name">Francisco José García Aguilera</div>
         <div class="miembro-role">Investigador</div>
+        <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
+      </div>
+      <div class="miembro-card fade-in">
+        <div class="miembro-avatar">MJ</div>
+        <div class="miembro-name">M.ª José López Martín</div>
+        <div class="miembro-role">Investigadora</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
       </div>
     </div>
@@ -351,83 +503,84 @@ footer a:hover{color:var(--amber)}
     <p class="section-eyebrow">Ponte en contacto</p>
     <h2 class="section-title">Hablemos</h2>
     <div class="contacto-grid">
-      <div class="contacto-info">
-        <h3>Información de contacto</h3>
+      <div>
         <div class="contacto-dato">
-          <span>Grupo de investigación</span>
-          <span>PRACTICE — Pedagogía Laboral, Comunidad, TIC, Igualdad y Empleo</span>
+          <label>Grupo de investigación</label>
+          <span>PRACTICE — Pedagogía Laboral, Arte, Comunidad, TIC, Igualdad y Empleo</span>
         </div>
         <div class="contacto-dato">
-          <span>Adscripción</span>
+          <label>Adscripción</label>
           <span>Área de Ciencias de la Educación · Universidad de Málaga</span>
         </div>
         <div class="contacto-dato">
-          <span>Facultad</span>
-          <span>Facultad de Ciencias de la Educación<br>Campus de Teatinos, Málaga</span>
+          <label>Facultad</label>
+          <span>Facultad de Ciencias de la Educación · Campus de Teatinos, Málaga</span>
         </div>
         <div class="contacto-dato">
-          <span>Universidad</span>
-          <a href="https://www.uma.es" target="_blank">www.uma.es</a>
-        </div>
-        <div class="contacto-dato">
-          <span>Correo electrónico</span>
+          <label>Correo electrónico</label>
           <a href="mailto:grupopracticeuma@gmail.com">grupopracticeuma@gmail.com</a>
         </div>
         <div class="contacto-dato">
-          <span>LinkedIn</span>
-          <a href="https://www.linkedin.com/in/grupo-practice-uma/" target="_blank">grupo-practice-uma</a>
+          <label>Universidad</label>
+          <a href="https://www.uma.es" target="_blank">www.uma.es</a>
+        </div>
+        <div class="contacto-redes">
+          <a href="https://www.linkedin.com/in/grupo-practice-uma/" target="_blank" class="red-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:grupopracticeuma@gmail.com" class="red-btn">
+            ✉ Email
+          </a>
         </div>
       </div>
-      <div class="contacto-map">
-        <p>PRACTICE es un grupo abierto a la colaboración con instituciones, organismos públicos, entidades sociales y empresas comprometidas con la educación, el empleo y la inclusión.</p>
-        <p>Si estás interesado en participar en proyectos conjuntos, encargarnos un estudio o simplemente conocer más sobre nuestra actividad, no dudes en escribirnos.</p>
-        <div class="colabs">
-          <div class="colabs-title">Ámbitos de colaboración</div>
-          <span class="colab-tag">Administraciones públicas</span>
-          <span class="colab-tag">Entidades sociales</span>
-          <span class="colab-tag">Tercer sector</span>
-          <span class="colab-tag">Empresas</span>
-          <span class="colab-tag">Organismos educativos</span>
-          <span class="colab-tag">Sindicatos</span>
-        </div>
+      <div class="contacto-box">
+        <p>PRACTICE es un grupo abierto a la colaboración con instituciones, organismos públicos, entidades sociales, colectivos artísticos y empresas comprometidas con la educación, el empleo y la inclusión.</p>
+        <p>Si estás interesado en participar en proyectos conjuntos, encargarnos un estudio o conocer más sobre nuestra actividad, no dudes en escribirnos.</p>
+        <div class="colabs-title">Ámbitos de colaboración</div>
+        <span class="colab-tag">Administraciones públicas</span>
+        <span class="colab-tag">Entidades sociales</span>
+        <span class="colab-tag">Tercer sector</span>
+        <span class="colab-tag">Colectivos artísticos</span>
+        <span class="colab-tag">Empresas</span>
+        <span class="colab-tag">Organismos educativos</span>
+        <span class="colab-tag">Sindicatos</span>
+        <span class="colab-tag">Industrias creativas</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
+  <div class="footer-gradient"></div>
   <div class="footer-inner">
-    <div class="footer-logo">PRACTICE<span>·</span> UMA</div>
-    <p>Grupo de Investigación en Pedagogía Laboral, Comunidad, TIC, Igualdad y Empleo<br>
-    <a href="https://www.uma.es">Universidad de Málaga</a> · Facultad de Ciencias de la Educación · Campus de Teatinos</p>
-    <p style="margin-top:0.75rem"><a href="mailto:grupopracticeuma@gmail.com">grupopracticeuma@gmail.com</a> · <a href="https://www.linkedin.com/in/grupo-practice-uma/" target="_blank">LinkedIn</a></p>
-    <p style="margin-top:1rem">© 2026 PRACTICE. Grupo de I+D Universidad de Málaga.</p>
+    <div>
+      <div class="footer-logo">PRACTICE<span>·</span> UMA</div>
+      <p>Pedagogía Laboral, Arte, Comunidad, TIC, Igualdad y Empleo</p>
+    </div>
+    <div style="text-align:right">
+      <p><a href="mailto:grupopracticeuma@gmail.com">grupopracticeuma@gmail.com</a></p>
+      <p><a href="https://www.uma.es" target="_blank">Universidad de Málaga</a> · Facultad de Ciencias de la Educación</p>
+      <p style="margin-top:0.5rem">© 2026 PRACTICE. Grupo de I+D · Universidad de Málaga</p>
+    </div>
   </div>
 </footer>
 
 <script>
-const rows = document.querySelectorAll('.acronym-row');
-rows.forEach((row, i) => {
-  setTimeout(() => {
-    row.classList.add('visible');
-  }, 600 + i * 120);
+// Animación acrónimo
+document.querySelectorAll('.acronym-row').forEach((row, i) => {
+  setTimeout(() => row.classList.add('visible'), 600 + i * 130);
 });
 
+// Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
+    if (entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, {threshold: 0.1});
 
-document.querySelectorAll('.linea-card, .miembro-card, .met-item').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  observer.observe(el);
-});
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
