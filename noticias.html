@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noticias — PRACTICE · Universidad de Málaga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1B3A6B;
+  --navy-mid:#234A89;
+  --navy-light:#EBF0F9;
+  --blue:#2E6DB4;
+  --green:#2D8A4E;
+  --orange:#E8841A;
+  --purple:#7B4F9E;
+  --gradient:linear-gradient(90deg,#1B3A6B,#2E6DB4,#2D8A4E,#E8841A);
+  --bg:#F4F6FA;
+  --surface:#FFFFFF;
+  --text:#1A2332;
+  --muted:#5A6A7E;
+  --border:#D4DCE8;
+  --nav-h:70px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-gradient{height:3px;background:var(--gradient)}
+.nav-inner{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5%}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}
+.nav-logo img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.nav-logo-text{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--navy);letter-spacing:0.04em}
+.nav-logo-text span{color:var(--orange)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
+.nav-links a:hover{color:var(--navy);border-bottom-color:var(--orange)}
+.nav-links a.active{color:var(--orange);border-bottom-color:var(--orange)}
+.nav-uma{font-size:0.75rem;color:var(--muted);font-weight:300}
+
+/* HEADER */
+.page-header{padding:calc(var(--nav-h) + 3.5rem) 5% 3rem;background:var(--surface);border-bottom:1px solid var(--border)}
+.page-header-inner{max-width:1100px;margin:0 auto}
+.breadcrumb{display:flex;align-items:center;gap:0.5rem;margin-bottom:1.25rem;font-size:0.8rem;color:var(--muted)}
+.breadcrumb a{color:var(--muted);text-decoration:none;transition:color 0.2s}
+.breadcrumb a:hover{color:var(--navy)}
+.breadcrumb span{color:var(--border)}
+.page-header h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);color:var(--navy);line-height:1.1;margin-bottom:0.75rem}
+.page-header p{font-size:1rem;font-weight:300;color:var(--muted);max-width:600px}
+.header-gradient-line{height:3px;background:var(--gradient);border-radius:2px;margin-top:1.5rem;width:80px}
+
+/* NOTICIAS GRID */
+.noticias-section{padding:4rem 5%;max-width:1100px;margin:0 auto}
+
+/* ============================================================
+   PARA AÑADIR UNA NUEVA NOTICIA:
+   Copia el bloque que empieza con <article class="noticia-card">
+   y termina con </article>, pégalo justo ENCIMA del bloque
+   existente (las noticias más recientes van primero) y cambia
+   el contenido: imagen, categoría, fecha, título, texto y enlace.
+   ============================================================ */
+.noticias-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem}
+
+.noticia-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column}
+.noticia-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(27,58,107,0.1)}
+.noticia-img{width:100%;height:200px;object-fit:cover;background:var(--navy-light);display:block}
+.noticia-img-placeholder{width:100%;height:200px;background:linear-gradient(135deg,var(--navy-light),#D4DCE8);display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.noticia-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.noticia-meta{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;flex-wrap:wrap}
+.noticia-cat{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.65rem;border-radius:2rem}
+.cat-investigacion{background:var(--navy-light);color:var(--navy)}
+.cat-publicacion{background:#F3EDF8;color:var(--purple)}
+.cat-evento{background:var(--orange-light, #FDF1E3);color:var(--orange)}
+.cat-transferencia{background:#E8F5EE;color:var(--green)}
+.cat-igualdad{background:#F5F0FF;color:#7B4F9E}
+.noticia-fecha{font-size:0.78rem;color:var(--muted);font-weight:400}
+.noticia-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--navy);line-height:1.3;margin-bottom:0.75rem}
+.noticia-excerpt{font-size:0.88rem;color:var(--muted);font-weight:300;line-height:1.7;flex:1;margin-bottom:1.25rem}
+.noticia-link{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.85rem;font-weight:500;color:var(--blue);text-decoration:none;transition:gap 0.2s}
+.noticia-link:hover{gap:0.7rem;color:var(--navy)}
+.noticia-link::after{content:'→'}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:4rem 2rem;color:var(--muted)}
+.empty-state p{font-size:1rem;font-weight:300}
+
+/* FOOTER */
+footer{background:#0F2044;margin-top:5rem}
+.footer-gradient{height:3px;background:var(--gradient)}
+.footer-inner{max-width:1100px;margin:0 auto;padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1rem;color:rgba(255,255,255,0.6);letter-spacing:0.04em}
+.footer-logo span{color:var(--orange)}
+footer p{font-size:0.78rem;color:rgba(255,255,255,0.3);font-weight:300}
+footer a{color:rgba(255,255,255,0.45);text-decoration:none}
+footer a:hover{color:var(--orange)}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav-uma{display:none}
+  .noticias-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-gradient"></div>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="PRACTICE">
+      <span class="nav-logo-text">PRACTICE<span>·</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#sobre">Quiénes somos</a></li>
+      <li><a href="index.html#lineas">Líneas de investigación</a></li>
+      <li><a href="index.html#transferencia">Transferencia</a></li>
+      <li><a href="index.html#equipo">Equipo</a></li>
+      <li><a href="noticias.html" class="active">Noticias</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+    <span class="nav-uma">Universidad de Málaga</span>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">PRACTICE</a>
+      <span>›</span>
+      <span>Noticias</span>
+    </div>
+    <h1>Noticias</h1>
+    <p>Publicaciones, eventos, proyectos y actividades del grupo de investigación PRACTICE.</p>
+    <div class="header-gradient-line"></div>
+  </div>
+</div>
+
+<!-- NOTICIAS -->
+<div class="noticias-section">
+  <div class="noticias-grid">
+
+    <!-- ============================================================
+         AÑADIR NUEVA NOTICIA: copia desde aquí...
+         ============================================================ -->
+    <article class="noticia-card">
+      <!-- Si tienes imagen, pon: <img src="noticias/nombre-imagen.jpg" alt="descripción" class="noticia-img"> -->
+      <!-- Si no tienes imagen, usa el bloque de abajo con un emoji -->
+      <div class="noticia-img-placeholder">📖</div>
+      <div class="noticia-body">
+        <div class="noticia-meta">
+          <span class="noticia-cat cat-publicacion">Publicación</span>
+          <span class="noticia-fecha">Junio 2026</span>
+        </div>
+        <h2 class="noticia-title">Publicado un libro sobre las Escuelas de Segunda Oportunidad como recurso de educación inclusiva</h2>
+        <p class="noticia-excerpt">El texto, titulado <em>El proyecto EDIE20</em>, ha sido coordinado por los investigadores de PRACTICE Francisco José García Aguilera y Adrián Ruiz Tienda, en colaboración con la Facultad de Ciencias de la Educación de la UMA, la UNIR y Arrabal-AID. Editado por Octaedro en acceso abierto.</p>
+        <a href="https://www.uma.es/sala-de-prensa/noticias/publicado-un-libro-que-analiza-las-escuelas-de-segunda-oportunidad-como-recurso-de-educacion-inclusiva/" target="_blank" class="noticia-link">Leer noticia completa</a>
+      </div>
+    </article>
+    <!-- ============================================================
+         ...hasta aquí. Pega el bloque encima de este comentario
+         para que las noticias más recientes aparezcan primero.
+         ============================================================ -->
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-gradient"></div>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">PRACTICE<span>·</span> UMA</div>
+      <p>Pedagogía Laboral, Arte, Comunidad, TIC, Igualdad y Empleo</p>
+    </div>
+    <div style="text-align:right">
+      <p><a href="mailto:grupopracticeuma@gmail.com">grupopracticeuma@gmail.com</a></p>
+      <p><a href="https://www.uma.es" target="_blank">Universidad de Málaga</a> · Facultad de Ciencias de la Educación</p>
+      <p style="margin-top:0.5rem">© 2026 PRACTICE. Grupo de I+D · Universidad de Málaga</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
