@@ -36,9 +36,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .nav-logo-text{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--navy);letter-spacing:0.04em}
 .nav-logo-text span{color:var(--orange)}
 .nav-links{display:flex;gap:1.75rem;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
-.nav-links a:hover{color:var(--navy);border-bottom-color:var(--orange)}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s,border-color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
 .nav-links a.active{color:var(--orange);border-bottom-color:var(--orange)}
+.nav-links li:nth-child(1) a:hover{color:var(--navy);border-bottom-color:var(--navy)}
+.nav-links li:nth-child(2) a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+.nav-links li:nth-child(3) a:hover{color:var(--green);border-bottom-color:var(--green)}
+.nav-links li:nth-child(4) a:hover{color:var(--purple);border-bottom-color:var(--purple)}
+.nav-links li:nth-child(5) a:hover{color:var(--orange);border-bottom-color:var(--orange)}
+.nav-links li:nth-child(6) a:hover{color:var(--green);border-bottom-color:var(--green)}
 .nav-uma{font-size:0.75rem;color:var(--muted);font-weight:300}
 
 /* HEADER */
@@ -149,13 +154,24 @@ footer a:hover{color:var(--orange)}
          AÑADIR NUEVA NOTICIA: copia desde aquí...
          ============================================================ -->
     <article class="noticia-card">
-      <!-- Si tienes imagen, pon: <img src="noticias/nombre-imagen.jpg" alt="descripción" class="noticia-img"> -->
-      <!-- Si no tienes imagen, usa el bloque de abajo con un emoji -->
+      <div class="noticia-img-placeholder">🎓</div>
+      <div class="noticia-body">
+        <div class="noticia-meta">
+          <span class="noticia-cat cat-investigacion">I+D+i UMA</span>
+          <span class="noticia-fecha">11 de junio de 2026</span>
+        </div>
+        <h2 class="noticia-title">PRACTICE, un nuevo grupo de I+D para avanzar en pedagogía laboral, inclusión, tecnología e igualdad</h2>
+        <p class="noticia-excerpt">La Universidad de Málaga ha constituido el grupo de investigación PRACTICE, una nueva estructura científica adscrita al área de Ciencias de la Educación. Impulsado por la profesora Esther Mena, trabajará en los ámbitos de la formación, el empleo y el desarrollo comunitario, articulando ocho ejes fundamentales: Pedagogía, Relaciones, Arte, Comunidad, Tecnologías, Igualdad, Conocimiento y Empleo.</p>
+        <a href="https://www.uma.es/sala-de-prensa/noticias/practice-un-nuevo-grupo-de-id-para-avanzar-en-pedagogia-laboral-inclusion-tecnologia-e-igualdad/" target="_blank" class="noticia-link">Leer noticia completa</a>
+      </div>
+    </article>
+
+    <article class="noticia-card">
       <div class="noticia-img-placeholder">📖</div>
       <div class="noticia-body">
         <div class="noticia-meta">
           <span class="noticia-cat cat-publicacion">Publicación</span>
-          <span class="noticia-fecha">Junio 2026</span>
+          <span class="noticia-fecha">16 de junio de 2026</span>
         </div>
         <h2 class="noticia-title">Publicado un libro sobre las Escuelas de Segunda Oportunidad como recurso de educación inclusiva</h2>
         <p class="noticia-excerpt">El texto, titulado <em>El proyecto EDIE20</em>, ha sido coordinado por los investigadores de PRACTICE Francisco José García Aguilera y Adrián Ruiz Tienda, en colaboración con la Facultad de Ciencias de la Educación de la UMA, la UNIR y Arrabal-AID. Editado por Octaedro en acceso abierto.</p>
@@ -163,7 +179,7 @@ footer a:hover{color:var(--orange)}
       </div>
     </article>
     <!-- ============================================================
-         ...hasta aquí. Pega el bloque encima de este comentario
+         ...hasta aquí. Pega bloques nuevos ENCIMA del primero
          para que las noticias más recientes aparezcan primero.
          ============================================================ -->
 
