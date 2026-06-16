@@ -198,7 +198,9 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.3);font-weight:300}
 footer a{color:rgba(255,255,255,0.45);text-decoration:none}
 footer a:hover{color:var(--orange)}
 
-/* SCROLL ANIMATION */
+.miembro-linkedin{display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.6rem;font-size:0.75rem;color:var(--blue);text-decoration:none;font-weight:500;transition:opacity 0.2s}
+.miembro-linkedin:hover{opacity:0.7;text-decoration:underline}
+.miembro-linkedin svg{flex-shrink:0}
 .fade-in{opacity:0;transform:translateY(16px);transition:opacity 0.55s ease,transform 0.55s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
@@ -253,8 +255,8 @@ footer a:hover{color:var(--orange)}
     </div>
     <div class="hero-right">
       <div class="acronym-row"><span class="acronym-letter">P</span><span class="acronym-word">Pedagogía <em>laboral y formación</em></span></div>
-      <div class="acronym-row"><span class="acronym-letter">R</span><span class="acronym-word">Relación con Asociaciones <em>y entorno</em></span></div>
-      <div class="acronym-row"><span class="acronym-letter">A</span><span class="acronym-word">Arte <em>creatividad y expresión</em></span></div>
+      <div class="acronym-row"><span class="acronym-letter">R</span><span class="acronym-word">Relaciones <em>educativas, laborales e interinstitucionales</em></span></div>
+      <div class="acronym-row"><span class="acronym-letter">A</span><span class="acronym-word">Asociaciones y Arte <em>colaboración y creatividad</em></span></div>
       <div class="acronym-row"><span class="acronym-letter">C</span><span class="acronym-word">Comunidad <em>y desarrollo local</em></span></div>
       <div class="acronym-row"><span class="acronym-letter">T</span><span class="acronym-word">Tecnologías <em>de la información y comunicación</em></span></div>
       <div class="acronym-row"><span class="acronym-letter">I</span><span class="acronym-word">Igualdad <em>diversidad y justicia social</em></span></div>
@@ -451,46 +453,80 @@ footer a:hover{color:var(--orange)}
     <h2 class="section-title">Equipo de investigación</h2>
     <p class="section-lead">Un grupo interdisciplinar comprometido con la investigación aplicada y la transformación social, artística y educativa.</p>
     <div class="equipo-grid">
+      <!-- 1. IP primero -->
       <div class="miembro-card fade-in">
-        <div class="miembro-avatar">EM</div>
+        <div class="miembro-avatar" style="background:var(--navy)">EM</div>
         <div class="miembro-name">Dra. Esther Mena Rodríguez</div>
-        <div class="miembro-role">Investigadora Principal</div>
+        <div class="miembro-role" style="color:var(--navy)">Investigadora Principal</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
       </div>
+      <!-- Resto en orden alfabético -->
       <div class="miembro-card fade-in">
-        <div class="miembro-avatar">AR</div>
+        <div class="miembro-avatar" style="background:#2C7DA0">AS</div>
+        <div class="miembro-name">Aarón Santana Guanche</div>
+        <div class="miembro-role" style="color:var(--blue)">Colaborador externo</div>
+        <div class="miembro-dept">IKEA</div>
+        <a href="https://www.linkedin.com/in/aaronsantanaguanche/" target="_blank" class="miembro-linkedin">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+      <div class="miembro-card fade-in">
+        <div class="miembro-avatar" style="background:var(--blue)">AR</div>
         <div class="miembro-name">Adrián Ruiz Tienda</div>
-        <div class="miembro-role">Investigador</div>
+        <div class="miembro-role" style="color:var(--blue)">Investigador</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
       </div>
       <div class="miembro-card fade-in">
-        <div class="miembro-avatar">DA</div>
+        <div class="miembro-avatar" style="background:#5B4F8E">AJ</div>
+        <div class="miembro-name">Dra. Audrey Jacquet</div>
+        <div class="miembro-role" style="color:var(--purple)">Investigadora</div>
+        <div class="miembro-dept">Université Rennes 2</div>
+        <a href="https://www.linkedin.com/in/audreyjacquet/" target="_blank" class="miembro-linkedin">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+      <div class="miembro-card fade-in">
+        <div class="miembro-avatar" style="background:var(--green)">DA</div>
         <div class="miembro-name">Diego Aguilar Cuenca</div>
-        <div class="miembro-role">Investigador</div>
+        <div class="miembro-role" style="color:var(--green)">Investigador</div>
+        <div class="miembro-dept">IFE</div>
+      </div>
+      <div class="miembro-card fade-in">
+        <div class="miembro-avatar" style="background:var(--orange)">EC</div>
+        <div class="miembro-name">Dra. Estefanía Cestino González</div>
+        <div class="miembro-role" style="color:var(--orange)">Investigadora</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
       </div>
       <div class="miembro-card fade-in">
-        <div class="miembro-avatar">EC</div>
-        <div class="miembro-name">Estefanía Cestino González</div>
-        <div class="miembro-role">Investigadora</div>
+        <div class="miembro-avatar" style="background:#C0392B">EI</div>
+        <div class="miembro-name">Dra. Estela Isequilla Alarcón</div>
+        <div class="miembro-role" style="color:#C0392B">Investigadora</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
       </div>
       <div class="miembro-card fade-in">
-        <div class="miembro-avatar">EI</div>
-        <div class="miembro-name">Estela Isequilla Alarcón</div>
-        <div class="miembro-role">Investigadora</div>
-        <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
-      </div>
-      <div class="miembro-card fade-in">
-        <div class="miembro-avatar">FG</div>
+        <div class="miembro-avatar" style="background:var(--navy-mid)">FG</div>
         <div class="miembro-name">Francisco José García Aguilera</div>
-        <div class="miembro-role">Investigador</div>
+        <div class="miembro-role" style="color:var(--navy)">Investigador</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
       </div>
       <div class="miembro-card fade-in">
-        <div class="miembro-avatar">MJ</div>
-        <div class="miembro-name">M.ª José López Martín</div>
-        <div class="miembro-role">Investigadora</div>
+        <div class="miembro-avatar" style="background:#2E8B6A">GL</div>
+        <div class="miembro-name">Mª Gabriela López García</div>
+        <div class="miembro-role" style="color:#2E8B6A">Colaboradora externa</div>
+        <div class="miembro-dept">AviaLeader · Sepac</div>
+      </div>
+      <div class="miembro-card fade-in">
+        <div class="miembro-avatar" style="background:#7A6B8A">MJ</div>
+        <div class="miembro-name">Mª José López Martín</div>
+        <div class="miembro-role" style="color:var(--purple)">Investigadora</div>
+        <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
+      </div>
+      <div class="miembro-card fade-in">
+        <div class="miembro-avatar" style="background:#1A7A8A">VM</div>
+        <div class="miembro-name">Dra. Victoria Márquez</div>
+        <div class="miembro-role" style="color:#1A7A8A">Investigadora</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
       </div>
     </div>
