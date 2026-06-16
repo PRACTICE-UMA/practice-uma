@@ -41,8 +41,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .nav-logo-text{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--navy);letter-spacing:0.04em}
 .nav-logo-text span{color:var(--orange)}
 .nav-links{display:flex;gap:1.75rem;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
-.nav-links a:hover{color:var(--navy);border-bottom-color:var(--orange)}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s,border-color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
+.nav-links li:nth-child(1) a:hover{color:var(--navy);border-bottom-color:var(--navy)}
+.nav-links li:nth-child(2) a:hover{color:var(--blue);border-bottom-color:var(--blue)}
+.nav-links li:nth-child(3) a:hover{color:var(--green);border-bottom-color:var(--green)}
+.nav-links li:nth-child(4) a:hover{color:var(--purple);border-bottom-color:var(--purple)}
+.nav-links li:nth-child(5) a:hover{color:var(--orange);border-bottom-color:var(--orange)}
+.nav-links li:nth-child(6) a:hover{color:var(--green);border-bottom-color:var(--green)}
 .nav-uma{font-size:0.75rem;color:var(--muted);font-weight:300;letter-spacing:0.01em}
 
 /* HERO */
@@ -230,7 +235,7 @@ footer a:hover{color:var(--orange)}
       <li><a href="#lineas">Líneas de investigación</a></li>
       <li><a href="#transferencia">Transferencia</a></li>
       <li><a href="#equipo">Equipo</a></li>
-      <li><a href="noticias.html" style="color:var(--orange);font-weight:600">Noticias</a></li>
+      <li><a href="noticias.html">Noticias</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <span class="nav-uma">Universidad de Málaga</span>
