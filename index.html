@@ -171,10 +171,7 @@ section{padding:5rem 5%}
 .miembro-card:nth-child(5) .miembro-avatar{background:var(--orange)}
 .miembro-card:nth-child(6) .miembro-avatar{background:var(--navy-mid)}
 .miembro-card:nth-child(7) .miembro-avatar{background:var(--green)}
-.miembro-name{font-weight:600;font-size:0.95rem;color:var(--text);margin-bottom:0.25rem;line-height:1.3}
-.miembro-role{font-size:0.78rem;font-weight:500;margin-bottom:0.4rem;letter-spacing:0.02em}
-.miembro-card:nth-child(1) .miembro-role{color:var(--navy)}
-.miembro-card:nth-child(n+2) .miembro-role{color:var(--blue)}
+.miembro-name{font-weight:600;font-size:0.95rem;color:var(--text);margin-bottom:0.5rem;line-height:1.3}
 .miembro-dept{font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5}
 
 /* CONTACTO */
@@ -205,9 +202,11 @@ footer p{font-size:0.78rem;color:rgba(255,255,255,0.3);font-weight:300}
 footer a{color:rgba(255,255,255,0.45);text-decoration:none}
 footer a:hover{color:var(--orange)}
 
-.miembro-linkedin{display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.6rem;font-size:0.75rem;color:var(--blue);text-decoration:none;font-weight:500;transition:opacity 0.2s}
-.miembro-linkedin:hover{opacity:0.7;text-decoration:underline}
-.miembro-linkedin svg{flex-shrink:0}
+.miembro-socials{display:flex;justify-content:center;gap:0.5rem;margin-top:0.85rem}
+.social-icon{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:5px;transition:opacity 0.2s,transform 0.2s;text-decoration:none;flex-shrink:0}
+.social-icon:hover{opacity:0.8;transform:translateY(-2px)}
+.social-icon.linkedin{background:#0A66C2}
+.social-icon.orcid{background:#A6CE39}
 .fade-in{opacity:0;transform:translateY(16px);transition:opacity 0.55s ease,transform 0.55s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
@@ -461,74 +460,71 @@ footer a:hover{color:var(--orange)}
     <h2 class="section-title">Equipo de investigación</h2>
     <p class="section-lead">Un grupo interdisciplinar comprometido con la investigación aplicada y la transformación social, artística y educativa.</p>
     <div class="equipo-grid">
-      <!-- 1. IP primero -->
       <div class="miembro-card fade-in">
         <div class="miembro-avatar" style="background:var(--navy)"><img src="fotos/esther.jpg" alt="Esther Mena" onerror="this.style.display='none';this.parentElement.innerHTML='EM'">EM</div>
         <div class="miembro-name">Dra. Esther Mena Rodríguez</div>
-        <div class="miembro-role" style="color:var(--navy)">Investigadora Principal</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
+        <div class="miembro-socials"><a href="https://www.linkedin.com/in/esther-mena-rodr%C3%ADguez-29bb5824/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://orcid.org/0000-0003-1406-3507" target="_blank" class="social-icon orcid" title="ORCID"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.862 3.872-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.285z"/></svg></a></div>
       </div>
-      <!-- 2. Francisco José -->
       <div class="miembro-card fade-in">
         <div class="miembro-avatar" style="background:var(--navy-mid)"><img src="fotos/francisco.jpg" alt="Francisco García" onerror="this.style.display='none';this.parentElement.innerHTML='FG'">FG</div>
         <div class="miembro-name">Dr. Francisco José García Aguilera</div>
-        <div class="miembro-role" style="color:var(--navy)">Investigador</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
+        <div class="miembro-socials"><a href="https://www.linkedin.com/in/franciscojosegarciaaguilera/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://orcid.org/0000-0002-5764-7409" target="_blank" class="social-icon orcid" title="ORCID"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.862 3.872-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.285z"/></svg></a></div>
       </div>
-      <!-- Resto en orden alfabético -->
       <div class="miembro-card fade-in">
         <div class="miembro-avatar" style="background:#2C7DA0"><img src="fotos/aaron.jpg" alt="Aarón Santana" onerror="this.style.display='none';this.parentElement.innerHTML='AS'">AS</div>
         <div class="miembro-name">Aarón Santana Guanche</div>
-        <div class="miembro-role" style="color:var(--blue)">Investigador</div>
         <div class="miembro-dept">IKEA</div>
+        <div class="miembro-socials"><a href="https://www.linkedin.com/in/aaronsantanaguanche/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
       </div>
       <div class="miembro-card fade-in">
         <div class="miembro-avatar" style="background:var(--blue)"><img src="fotos/adrian.jpg" alt="Adrián Ruiz" onerror="this.style.display='none';this.parentElement.innerHTML='AR'">AR</div>
         <div class="miembro-name">Adrián Ruiz Tienda</div>
-        <div class="miembro-role" style="color:var(--blue)">Investigador</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
+        <div class="miembro-socials"><a href="https://www.linkedin.com/in/adri%C3%A1n-ruiz-b59b49265/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://orcid.org/0009-0002-1265-5568" target="_blank" class="social-icon orcid" title="ORCID"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.862 3.872-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.285z"/></svg></a></div>
       </div>
       <div class="miembro-card fade-in">
         <div class="miembro-avatar" style="background:#5B4F8E"><img src="fotos/audrey.jpg" alt="Audrey Jacquet" onerror="this.style.display='none';this.parentElement.innerHTML='AJ'">AJ</div>
         <div class="miembro-name">Dra. Audrey Jacquet</div>
-        <div class="miembro-role" style="color:var(--purple)">Investigadora</div>
         <div class="miembro-dept">Université Rennes 2</div>
+        <div class="miembro-socials"><a href="https://www.linkedin.com/in/audreyjacquet/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
       </div>
       <div class="miembro-card fade-in">
         <div class="miembro-avatar" style="background:var(--green)"><img src="fotos/diego.jpg" alt="Diego Aguilar" onerror="this.style.display='none';this.parentElement.innerHTML='DA'">DA</div>
         <div class="miembro-name">Diego Aguilar Cuenca</div>
-        <div class="miembro-role" style="color:var(--green)">Investigador</div>
         <div class="miembro-dept">Instituto Municipal para la Formación y el Empleo (IMFE)</div>
+        <div class="miembro-socials"><a href="https://www.linkedin.com/in/diegoaguilarcuenca/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://orcid.org/0000-0001-5336-2687" target="_blank" class="social-icon orcid" title="ORCID"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.862 3.872-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.285z"/></svg></a></div>
       </div>
       <div class="miembro-card fade-in">
         <div class="miembro-avatar" style="background:var(--orange)"><img src="fotos/estefania.jpg" alt="Estefanía Cestino" onerror="this.style.display='none';this.parentElement.innerHTML='EC'">EC</div>
         <div class="miembro-name">Dra. Estefanía Cestino González</div>
-        <div class="miembro-role" style="color:var(--orange)">Investigadora</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
+        <div class="miembro-socials"><a href="https://www.linkedin.com/in/estefania-cestino-gonzalez-578023164/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://orcid.org/0000-0002-2436-8665" target="_blank" class="social-icon orcid" title="ORCID"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.862 3.872-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.285z"/></svg></a></div>
       </div>
       <div class="miembro-card fade-in">
         <div class="miembro-avatar" style="background:#C0392B"><img src="fotos/estela.jpg" alt="Estela Isequilla" onerror="this.style.display='none';this.parentElement.innerHTML='EI'">EI</div>
         <div class="miembro-name">Dra. Estela Isequilla Alarcón</div>
-        <div class="miembro-role" style="color:#C0392B">Investigadora</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
+        <div class="miembro-socials"><a href="https://www.linkedin.com/in/estelaisequilla/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://orcid.org/0000-0002-1560-198X" target="_blank" class="social-icon orcid" title="ORCID"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.862 3.872-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.285z"/></svg></a></div>
       </div>
       <div class="miembro-card fade-in">
         <div class="miembro-avatar" style="background:#2E8B6A"><img src="fotos/gabriela.jpg" alt="Mª Gabriela López" onerror="this.style.display='none';this.parentElement.innerHTML='GL'">GL</div>
         <div class="miembro-name">Mª Gabriela López García</div>
-        <div class="miembro-role" style="color:#2E8B6A">Investigadora</div>
         <div class="miembro-dept">AviaLeader · Sepac</div>
+        <div class="miembro-socials"><a href="https://www.linkedin.com/in/m%C3%AA-gabriela-l%C3%B3pez-garc%C3%ADa-61230134/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
       </div>
       <div class="miembro-card fade-in">
         <div class="miembro-avatar" style="background:#7A6B8A"><img src="fotos/mariajose.jpg" alt="Mª José López" onerror="this.style.display='none';this.parentElement.innerHTML='MJ'">MJ</div>
         <div class="miembro-name">Mª José López Martín</div>
-        <div class="miembro-role" style="color:var(--purple)">Investigadora</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
+        <div class="miembro-socials"><a href="https://www.linkedin.com/in/m-%C3%AA-jos%C3%A9-l%C3%B3pez-mart%C3%ADn-37594540a/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
       </div>
       <div class="miembro-card fade-in">
         <div class="miembro-avatar" style="background:#1A7A8A"><img src="fotos/victoria.jpg" alt="Victoria Márquez" onerror="this.style.display='none';this.parentElement.innerHTML='VM'">VM</div>
         <div class="miembro-name">Dra. Victoria Márquez</div>
-        <div class="miembro-role" style="color:#1A7A8A">Investigadora</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
+        <div class="miembro-socials"><a href="https://www.linkedin.com/in/vmarquezart/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://orcid.org/0000-0003-1422-2061" target="_blank" class="social-icon orcid" title="ORCID"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.862 3.872-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.285z"/></svg></a></div>
       </div>
     </div>
   </div>
