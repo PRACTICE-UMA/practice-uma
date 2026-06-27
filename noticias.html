@@ -6,22 +6,15 @@
 <title>Noticias — PRACTICE · Universidad de Málaga</title>
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#1B3A6B;
-  --navy-mid:#234A89;
-  --navy-light:#EBF0F9;
-  --blue:#2E6DB4;
-  --green:#2D8A4E;
-  --orange:#E8841A;
-  --purple:#7B4F9E;
+  --navy:#1B3A6B;--navy-mid:#234A89;--navy-light:#EBF0F9;
+  --blue:#2E6DB4;--green:#2D8A4E;--orange:#E8841A;--purple:#7B4F9E;
   --gradient:linear-gradient(90deg,#1B3A6B,#2E6DB4,#2D8A4E,#E8841A);
-  --bg:#F4F6FA;
-  --surface:#FFFFFF;
-  --text:#1A2332;
-  --muted:#5A6A7E;
-  --border:#D4DCE8;
+  --bg:#F4F6FA;--surface:#FFFFFF;--text:#1A2332;--muted:#5A6A7E;--border:#D4DCE8;
   --nav-h:70px;
 }
 html{scroll-behavior:smooth}
@@ -36,7 +29,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .nav-logo-text{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--navy);letter-spacing:0.04em}
 .nav-logo-text span{color:var(--orange)}
 .nav-links{display:flex;gap:1.75rem;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s,border-color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;transition:color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
 .nav-links a.active{color:var(--orange);border-bottom-color:var(--orange)}
 .nav-links li:nth-child(1) a:hover{color:var(--navy);border-bottom-color:var(--navy)}
 .nav-links li:nth-child(2) a:hover{color:var(--blue);border-bottom-color:var(--blue)}
@@ -48,52 +41,46 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 
 /* HEADER */
 .page-header{padding:calc(var(--nav-h) + 3.5rem) 5% 3rem;background:var(--surface);border-bottom:1px solid var(--border)}
-.page-header-inner{max-width:1100px;margin:0 auto}
+.page-header-inner{max-width:780px;margin:0 auto}
 .breadcrumb{display:flex;align-items:center;gap:0.5rem;margin-bottom:1.25rem;font-size:0.8rem;color:var(--muted)}
-.breadcrumb a{color:var(--muted);text-decoration:none;transition:color 0.2s}
+.breadcrumb a{color:var(--muted);text-decoration:none}
 .breadcrumb a:hover{color:var(--navy)}
 .breadcrumb span{color:var(--border)}
 .page-header h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);color:var(--navy);line-height:1.1;margin-bottom:0.75rem}
-.page-header p{font-size:1rem;font-weight:300;color:var(--muted);max-width:600px}
+.page-header p{font-size:1rem;font-weight:300;color:var(--muted)}
 .header-gradient-line{height:3px;background:var(--gradient);border-radius:2px;margin-top:1.5rem;width:80px}
 
-/* NOTICIAS GRID */
-.noticias-section{padding:4rem 5%;max-width:1100px;margin:0 auto}
+/* ARTÍCULOS */
+.noticias-wrapper{max-width:780px;margin:0 auto;padding:3rem 5% 5rem}
 
 /* ============================================================
    PARA AÑADIR UNA NUEVA NOTICIA:
-   Copia el bloque que empieza con <article class="noticia-card">
-   y termina con </article>, pégalo justo ENCIMA del bloque
-   existente (las noticias más recientes van primero) y cambia
-   el contenido: imagen, categoría, fecha, título, texto y enlace.
+   Copia el bloque <article class="noticia">...</article>
+   completo y pégalo JUSTO ENCIMA del primero que ya existe.
+   Cambia: la categoría, la fecha, el título, el cuerpo y,
+   si la hay, la URL del enlace final.
    ============================================================ */
-.noticias-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem}
 
-.noticia-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;display:flex;flex-direction:column}
-.noticia-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(27,58,107,0.1)}
-.noticia-img{width:100%;height:200px;object-fit:cover;background:var(--navy-light);display:block}
-.noticia-img-placeholder{width:100%;height:200px;background:linear-gradient(135deg,var(--navy-light),#D4DCE8);display:flex;align-items:center;justify-content:center;font-size:2.5rem}
-.noticia-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
-.noticia-meta{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;flex-wrap:wrap}
-.noticia-cat{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.65rem;border-radius:2rem}
+.noticia{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:2.5rem;margin-bottom:2rem}
+.noticia-meta{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.noticia-cat{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:2rem}
 .cat-investigacion{background:var(--navy-light);color:var(--navy)}
 .cat-publicacion{background:#F3EDF8;color:var(--purple)}
-.cat-evento{background:var(--orange-light, #FDF1E3);color:var(--orange)}
+.cat-evento{background:#FDF1E3;color:var(--orange)}
 .cat-transferencia{background:#E8F5EE;color:var(--green)}
-.cat-igualdad{background:#F5F0FF;color:#7B4F9E}
-.noticia-fecha{font-size:0.78rem;color:var(--muted);font-weight:400}
-.noticia-title{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--navy);line-height:1.3;margin-bottom:0.75rem}
-.noticia-excerpt{font-size:0.88rem;color:var(--muted);font-weight:300;line-height:1.7;flex:1;margin-bottom:1.25rem}
-.noticia-link{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.85rem;font-weight:500;color:var(--blue);text-decoration:none;transition:gap 0.2s}
-.noticia-link:hover{gap:0.7rem;color:var(--navy)}
-.noticia-link::after{content:'→'}
-
-/* EMPTY STATE */
-.empty-state{text-align:center;padding:4rem 2rem;color:var(--muted)}
-.empty-state p{font-size:1rem;font-weight:300}
+.cat-igualdad{background:#F5F0FF;color:var(--purple)}
+.noticia-fecha{font-size:0.82rem;color:var(--muted)}
+.noticia h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.2rem,2.5vw,1.6rem);color:var(--navy);line-height:1.3;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
+.noticia-body p{font-size:0.97rem;color:var(--text);font-weight:300;line-height:1.85;margin-bottom:1rem}
+.noticia-body p:last-child{margin-bottom:0}
+.noticia-body strong{font-weight:600;color:var(--text)}
+.noticia-body em{font-style:italic}
+.noticia-link-ext{display:inline-flex;align-items:center;gap:0.4rem;margin-top:1.5rem;font-size:0.88rem;font-weight:500;color:var(--blue);text-decoration:none;padding:0.6rem 1.2rem;border:1.5px solid var(--blue);border-radius:4px;transition:all 0.2s}
+.noticia-link-ext:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.noticia-link-ext::after{content:'→'}
 
 /* FOOTER */
-footer{background:#0F2044;margin-top:5rem}
+footer{background:#0F2044}
 .footer-gradient{height:3px;background:var(--gradient)}
 .footer-inner{max-width:1100px;margin:0 auto;padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .footer-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1rem;color:rgba(255,255,255,0.6);letter-spacing:0.04em}
@@ -103,16 +90,14 @@ footer a{color:rgba(255,255,255,0.45);text-decoration:none}
 footer a:hover{color:var(--orange)}
 
 @media(max-width:768px){
-  .nav-links{display:none}
-  .nav-uma{display:none}
-  .noticias-grid{grid-template-columns:1fr}
+  .nav-links,.nav-uma{display:none}
+  .noticia{padding:1.5rem}
   .footer-inner{flex-direction:column;text-align:center}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-gradient"></div>
   <div class="nav-inner">
@@ -132,7 +117,6 @@ footer a:hover{color:var(--orange)}
   </div>
 </nav>
 
-<!-- HEADER -->
 <div class="page-header">
   <div class="page-header-inner">
     <div class="breadcrumb">
@@ -146,47 +130,71 @@ footer a:hover{color:var(--orange)}
   </div>
 </div>
 
-<!-- NOTICIAS -->
-<div class="noticias-section">
-  <div class="noticias-grid">
+<div class="noticias-wrapper">
 
-    <!-- ============================================================
-         AÑADIR NUEVA NOTICIA: copia desde aquí...
-         ============================================================ -->
-    <article class="noticia-card">
-      <div class="noticia-img-placeholder">🎓</div>
-      <div class="noticia-body">
-        <div class="noticia-meta">
-          <span class="noticia-cat cat-investigacion">I+D+i UMA</span>
-          <span class="noticia-fecha">11 de junio de 2026</span>
-        </div>
-        <h2 class="noticia-title">PRACTICE, un nuevo grupo de I+D para avanzar en pedagogía laboral, inclusión, tecnología e igualdad</h2>
-        <p class="noticia-excerpt">La Universidad de Málaga ha constituido el grupo de investigación PRACTICE, una nueva estructura científica adscrita al área de Ciencias de la Educación. Impulsado por la profesora Esther Mena, trabajará en los ámbitos de la formación, el empleo y el desarrollo comunitario, articulando ocho ejes fundamentales: Pedagogía, Relaciones, Arte, Comunidad, Tecnologías, Igualdad, Conocimiento y Empleo.</p>
-        <a href="https://www.uma.es/sala-de-prensa/noticias/practice-un-nuevo-grupo-de-id-para-avanzar-en-pedagogia-laboral-inclusion-tecnologia-e-igualdad/" target="_blank" class="noticia-link">Leer noticia completa</a>
-      </div>
-    </article>
+  <!-- ============================================================
+       PEGA LAS NOTICIAS MÁS RECIENTES AQUÍ ARRIBA
+       ============================================================ -->
 
-    <article class="noticia-card">
-      <div class="noticia-img-placeholder">📖</div>
-      <div class="noticia-body">
-        <div class="noticia-meta">
-          <span class="noticia-cat cat-publicacion">Publicación</span>
-          <span class="noticia-fecha">16 de junio de 2026</span>
-        </div>
-        <h2 class="noticia-title">Publicado un libro sobre las Escuelas de Segunda Oportunidad como recurso de educación inclusiva</h2>
-        <p class="noticia-excerpt">El texto, titulado <em>El proyecto EDIE20</em>, ha sido coordinado por los investigadores de PRACTICE Francisco José García Aguilera y Adrián Ruiz Tienda, en colaboración con la Facultad de Ciencias de la Educación de la UMA, la UNIR y Arrabal-AID. Editado por Octaedro en acceso abierto.</p>
-        <a href="https://www.uma.es/sala-de-prensa/noticias/publicado-un-libro-que-analiza-las-escuelas-de-segunda-oportunidad-como-recurso-de-educacion-inclusiva/" target="_blank" class="noticia-link">Leer noticia completa</a>
-      </div>
-    </article>
-    <!-- ============================================================
-         ...hasta aquí. Pega bloques nuevos ENCIMA del primero
-         para que las noticias más recientes aparezcan primero.
-         ============================================================ -->
+  <article class="noticia">
+    <div class="noticia-meta">
+      <span class="noticia-cat cat-publicacion">Publicación</span>
+      <span class="noticia-fecha">16 de junio de 2026</span>
+    </div>
+    <h2>Publicado un libro sobre las Escuelas de Segunda Oportunidad como recurso de educación inclusiva</h2>
+    <div class="noticia-body">
+      <p>La Universidad de Málaga ha publicado el libro <em>El proyecto EDIE20</em>, coordinado por los investigadores de PRACTICE <strong>Francisco José García Aguilera</strong> y <strong>Adrián Ruiz Tienda</strong>, en colaboración con la Facultad de Ciencias de la Educación de la UMA, la UNIR y Arrabal-AID.</p>
+      <p>La obra analiza las Escuelas de Segunda Oportunidad como recurso de educación inclusiva y ha sido editada por Octaedro en acceso abierto, lo que permite su descarga y difusión libre.</p>
+      <a href="https://www.uma.es/sala-de-prensa/noticias/publicado-un-libro-que-analiza-las-escuelas-de-segunda-oportunidad-como-recurso-de-educacion-inclusiva/" target="_blank" class="noticia-link-ext">Leer noticia completa en UMA</a>
+    </div>
+  </article>
 
-  </div>
+  <article class="noticia">
+    <div class="noticia-meta">
+      <span class="noticia-cat cat-igualdad">Igualdad</span>
+      <span class="noticia-fecha">1 de junio de 2026</span>
+    </div>
+    <h2>La Universidad de Málaga impulsa la formación en lenguaje inclusivo e interseccionalidad para el profesorado y el estudiantado de Ciencias de la Salud y Medicina</h2>
+    <div class="noticia-body">
+      <p>El taller, enmarcado en el IV Plan de Igualdad de Género de la UMA, puso de relieve el papel del lenguaje como herramienta para visibilizar las desigualdades y promover una comunicación más inclusiva.</p>
+      <p>El pasado 1 de junio, la Universidad de Málaga acogió el taller <strong>«Lenguaje inclusivo e interseccionalidad: nombrar para visibilizar las desigualdades de género»</strong>, una actividad dirigida al profesorado y al estudiantado de la Facultad de Ciencias de la Salud y de la Facultad de Medicina.</p>
+      <p>La iniciativa fue promovida por Rocío Martín Valero, directora del Departamento de Fisioterapia, y se enmarca dentro de las acciones contempladas en el <strong>IV Plan de Igualdad de Género de la Universidad de Málaga</strong>, cuyo objetivo es fomentar la igualdad efectiva entre mujeres y hombres e incorporar la perspectiva de género en todos los ámbitos de la actividad universitaria.</p>
+      <p>El taller fue impartido por D.ª <strong>Susana Guerrero Salazar</strong>, catedrática del Departamento de Filología Española, Italiana, Románica, Teoría de la Literatura y Literatura Comparada y Ciencias y Técnicas Historiográficas de la Universidad de Málaga, y autora de la Guía orientativa para el uso igualitario del lenguaje y de la imagen de la UMA, junto con D.ª <strong>Esther Mena Rodríguez</strong>, profesora titular del Departamento de Teoría e Historia de la Educación, Pedagogía Social y Métodos de Investigación y Diagnóstico en Educación.</p>
+      <p>Durante la sesión se abordó la importancia del lenguaje como elemento que contribuye a construir la realidad social y la necesidad de utilizar formas de comunicación que visibilicen la diversidad de las personas y eviten la reproducción de estereotipos y desigualdades de género. Asimismo, se profundizó en el concepto de interseccionalidad, analizando cómo distintos ejes de desigualdad —como el género, la edad, la discapacidad, el origen o la orientación sexual— pueden interactuar y generar situaciones de discriminación múltiple.</p>
+      <p>La actividad combinó contenidos teóricos con ejemplos prácticos y estrategias aplicables al ámbito universitario y sanitario, favoreciendo la reflexión crítica sobre el uso cotidiano del lenguaje y proporcionando herramientas para una comunicación más respetuosa, precisa e inclusiva.</p>
+      <p>Con este tipo de iniciativas, la Universidad de Málaga reafirma su compromiso con la promoción de la igualdad de género, la sensibilización de su comunidad universitaria y la incorporación de la perspectiva de género como un eje transversal de la docencia, la investigación y la gestión universitaria.</p>
+    </div>
+  </article>
+
+  <article class="noticia">
+    <div class="noticia-meta">
+      <span class="noticia-cat cat-investigacion">I+D+i UMA</span>
+      <span class="noticia-fecha">11 de junio de 2026</span>
+    </div>
+    <h2>PRACTICE, un nuevo grupo de I+D para avanzar en pedagogía laboral, inclusión, tecnología e igualdad</h2>
+    <div class="noticia-body">
+      <p>La Universidad de Málaga ha constituido el grupo de investigación <strong>PRACTICE</strong>, una nueva estructura científica adscrita al área de Ciencias de la Educación. Impulsado por la profesora <strong>Esther Mena</strong>, trabajará en los ámbitos de la formación, el empleo y el desarrollo comunitario.</p>
+      <p>Su acrónimo integra ocho ejes fundamentales: <strong>Pedagogía, Relaciones, Arte, Comunidad, Tecnologías, Igualdad, Conocimiento y Empleo</strong>, reflejando un enfoque interdisciplinar orientado a generar conocimiento con impacto real en la sociedad.</p>
+      <a href="https://www.uma.es/sala-de-prensa/noticias/practice-un-nuevo-grupo-de-id-para-avanzar-en-pedagogia-laboral-inclusion-tecnologia-e-igualdad/" target="_blank" class="noticia-link-ext">Leer noticia completa en UMA</a>
+    </div>
+  </article>
+
+  <article class="noticia">
+    <div class="noticia-meta">
+      <span class="noticia-cat cat-evento">Congreso</span>
+      <span class="noticia-fecha">15 de mayo de 2026</span>
+    </div>
+    <h2>Póster del Grupo de Investigación PRACTICE en el VII Congreso de Psicología Positiva</h2>
+    <div class="noticia-body">
+      <p>El 15 de mayo de 2026, <strong>Dra. Estela Isequilla Alarcón</strong> participó con su póster sobre cómo afecta el bullying y el ciberbullying a las personas con diversidad funcional en el <strong>VII Congreso de Psicología Positiva</strong>, celebrado los días 13-16 de mayo de 2026, organizado por la Sociedad Española de Psicología Positiva en la Facultad de Psicología y Logopedia de la Universidad de Málaga.</p>
+      <p>Se puede apreciar en el gráfico presentado que el alumnado con <strong>neurodivergencia autista</strong> es la población que más bullying y ciberbullying sufre, con un <strong>46%</strong>, seguido del alumnado con diversidad funcional física, intelectual, visual, enfermedades raras, diversidad auditiva y personas sin ningún tipo de peculiaridad.</p>
+      <p>El trabajo subraya que es necesario que el profesorado actúe y coordine tanto con el Equipo del Profesorado como con el de la Orientación para hacer frente a estas situaciones.</p>
+      <a href="https://hdl.handle.net/10630/46798" target="_blank" class="noticia-link-ext">Ver póster en RIUMA</a>
+    </div>
+  </article>
+
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-gradient"></div>
   <div class="footer-inner">
