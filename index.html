@@ -15,7 +15,7 @@
   --blue:#2E6DB4;
   --green:#2D8A4E;
   --green-light:#E8F5EE;
-  --orange:#E8841A;
+  --orange:#E8841A;--orange-text:#B25A06;--green-text:#1F6B3A;--orange-on-dark:#F4A44B;
   --orange-light:#FDF1E3;
   --purple:#7B4F9E;
   --gradient:linear-gradient(90deg,#1B3A6B,#2E6DB4,#2D8A4E,#E8841A);
@@ -26,7 +26,7 @@
   --border:#D4DCE8;
   --nav-h:70px;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7}
 
 /* GRADIENT BAR */
@@ -40,15 +40,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .nav-logo img{width:42px;height:42px;border-radius:50%;object-fit:cover}
 .nav-logo-text{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--navy);letter-spacing:0.04em}
 .nav-logo-text span{color:var(--orange)}
-.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
 .nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s,border-color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
-.nav-links li:nth-child(1) a:hover{color:var(--navy);border-bottom-color:var(--navy)}
-.nav-links li:nth-child(2) a:hover{color:var(--blue);border-bottom-color:var(--blue)}
-.nav-links li:nth-child(3) a:hover{color:var(--green);border-bottom-color:var(--green)}
-.nav-links li:nth-child(4) a:hover{color:var(--purple);border-bottom-color:var(--purple)}
-.nav-links li:nth-child(5) a:hover{color:var(--orange);border-bottom-color:var(--orange)}
-.nav-links li:nth-child(6) a:hover{color:var(--green);border-bottom-color:var(--green)}
-.nav-uma{font-size:0.75rem;color:var(--muted);font-weight:300;letter-spacing:0.01em}
+.nav-links li:nth-child(1) a:hover,.nav-links li:nth-child(1) a.active{color:var(--navy);border-bottom-color:var(--navy)}
+.nav-links li:nth-child(2) a:hover,.nav-links li:nth-child(2) a.active{color:var(--blue);border-bottom-color:var(--blue)}
+.nav-links li:nth-child(3) a:hover,.nav-links li:nth-child(3) a.active{color:var(--green-text);border-bottom-color:var(--green-text)}
+.nav-links li:nth-child(4) a:hover,.nav-links li:nth-child(4) a.active{color:var(--purple);border-bottom-color:var(--purple)}
+.nav-links li:nth-child(5) a:hover,.nav-links li:nth-child(5) a.active{color:var(--orange-text);border-bottom-color:var(--orange-text)}
+.nav-links li:nth-child(6) a:hover,.nav-links li:nth-child(6) a.active{color:#1F6F8E;border-bottom-color:#1F6F8E}
+.nav-links li:nth-child(7) a:hover,.nav-links li:nth-child(7) a.active{color:var(--green-text);border-bottom-color:var(--green-text)}
+.nav-uma{font-size:0.75rem;color:var(--muted);font-weight:400;letter-spacing:0.01em}
+.nav-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;background:#fff;border:1.5px solid var(--border);border-radius:8px;color:var(--navy);cursor:pointer;transition:background 0.2s,border-color 0.2s}
+.nav-toggle:hover{background:var(--navy-light);border-color:var(--navy)}
+.nav-toggle .icon-close{display:none}
+nav.open .nav-toggle .icon-menu{display:none}
+nav.open .nav-toggle .icon-close{display:block}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.to-top{position:fixed;right:1.25rem;bottom:1.25rem;width:46px;height:46px;border-radius:50%;border:none;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(27,58,107,0.3);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity 0.25s,transform 0.25s,background 0.2s,visibility 0.25s;z-index:90}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--blue)}
 
 /* HERO */
 #inicio{padding:calc(var(--nav-h) + 4rem) 5% 5rem;min-height:100vh;display:flex;align-items:center;background:var(--surface)}
@@ -61,7 +71,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .hero-logo-info strong{font-size:0.9rem;color:var(--navy);font-weight:600}
 .hero-left h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3.5rem,6.5vw,5.5rem);line-height:1;color:var(--navy);letter-spacing:-0.01em}
 .hero-left h1 .dot{color:var(--orange)}
-.hero-tagline{margin-top:1.25rem;font-size:1.05rem;font-weight:300;color:var(--muted);line-height:1.7;max-width:420px}
+.hero-tagline{margin-top:1.25rem;font-size:1.05rem;font-weight:400;color:var(--muted);line-height:1.7;max-width:420px}
 .hero-tagline strong{font-weight:500;color:var(--text)}
 .hero-gradient-line{height:3px;background:var(--gradient);border-radius:2px;margin:1.5rem 0;width:80px}
 .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.75rem}
@@ -70,7 +80,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .btn-primary:hover{background:var(--navy-mid)}
 .btn-secondary{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
 .btn-secondary:hover{background:var(--navy-light)}
-.btn-orange{background:var(--orange);color:#fff}
+.btn-orange{background:var(--orange-text);color:#fff}
 .btn-orange:hover{opacity:0.9}
 .hero-right{border-left:2px solid var(--border);padding-left:2.5rem}
 .acronym-row{display:flex;align-items:baseline;gap:1rem;padding:0.6rem 0;border-bottom:1px solid var(--border);opacity:0;transform:translateX(20px);transition:opacity 0.5s ease,transform 0.5s ease}
@@ -84,33 +94,33 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .acronym-row:nth-child(5) .acronym-letter{color:var(--blue)}
 .acronym-row:nth-child(6) .acronym-letter{color:var(--green)}
 .acronym-row:nth-child(7) .acronym-letter{color:var(--navy)}
-.acronym-row:nth-child(8) .acronym-letter{color:var(--orange)}
+.acronym-row:nth-child(8) .acronym-letter{color:var(--orange-text)}
 .acronym-word{font-size:0.88rem;font-weight:500;color:var(--text)}
-.acronym-word em{font-style:normal;font-weight:300;color:var(--muted);margin-left:0.3rem;font-size:0.8rem}
+.acronym-word em{font-style:normal;font-weight:400;color:var(--muted);margin-left:0.3rem;font-size:0.8rem}
 
 /* SHARED */
 section{padding:5rem 5%}
 .section-inner{max-width:1100px;margin:0 auto;width:100%}
-.section-eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:0.65rem}
+.section-eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-text);margin-bottom:0.65rem}
 .section-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.75rem,3vw,2.4rem);color:var(--navy);line-height:1.2;margin-bottom:1.25rem}
-.section-lead{font-size:1rem;font-weight:300;color:var(--muted);max-width:680px;line-height:1.8}
+.section-lead{font-size:1rem;font-weight:400;color:var(--muted);max-width:680px;line-height:1.8}
 
 /* SOBRE */
 #sobre{background:var(--navy);color:#fff}
-#sobre .section-eyebrow{color:var(--orange)}
+#sobre .section-eyebrow{color:var(--orange-on-dark)}
 #sobre .section-title{color:#fff}
 .sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
 .sobre-quote{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;line-height:1.5;color:rgba(255,255,255,0.95);border-left:4px solid var(--orange);padding-left:1.5rem;margin-bottom:2rem}
 .sobre-ejes{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem}
 .eje-tag{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.88);font-size:0.77rem;padding:0.3rem 0.8rem;border-radius:2rem;border:1px solid rgba(255,255,255,0.2);font-weight:400}
-.sobre-text p{font-weight:300;color:rgba(255,255,255,0.82);line-height:1.85;margin-bottom:1rem;font-size:0.96rem}
+.sobre-text p{font-weight:400;color:rgba(255,255,255,0.82);line-height:1.85;margin-bottom:1rem;font-size:0.96rem}
 
 /* LÍNEAS */
 #lineas{background:var(--bg)}
 .lineas-intro{display:grid;grid-template-columns:2fr 1fr;gap:3rem;align-items:center;margin-bottom:3rem}
 .lineas-arte-note{background:linear-gradient(135deg,var(--purple),#9B6DC0);border-radius:8px;padding:1.5rem;color:#fff}
 .lineas-arte-note strong{display:block;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.75;margin-bottom:0.4rem}
-.lineas-arte-note p{font-size:0.88rem;font-weight:300;line-height:1.6;opacity:0.9}
+.lineas-arte-note p{font-size:0.88rem;font-weight:400;line-height:1.6;opacity:0.9}
 .lineas-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
 .linea-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.75rem;transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden}
 .linea-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
@@ -124,13 +134,13 @@ section{padding:5rem 5%}
 .linea-num{font-family:'Playfair Display',serif;font-weight:900;font-size:2.2rem;line-height:1;margin-bottom:0.5rem;opacity:0.1;color:var(--navy)}
 .linea-tag{display:inline-block;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2rem;margin-bottom:0.75rem}
 .linea-card:nth-child(1) .linea-tag{background:var(--navy-light);color:var(--navy)}
-.linea-card:nth-child(2) .linea-tag{background:var(--green-light);color:var(--green)}
+.linea-card:nth-child(2) .linea-tag{background:var(--green-light);color:var(--green-text)}
 .linea-card:nth-child(3) .linea-tag{background:#F3EDF8;color:var(--purple)}
 .linea-card:nth-child(4) .linea-tag{background:#EBF3FB;color:var(--blue)}
-.linea-card:nth-child(5) .linea-tag{background:var(--orange-light);color:var(--orange)}
-.linea-card:nth-child(6) .linea-tag{background:var(--green-light);color:var(--green)}
+.linea-card:nth-child(5) .linea-tag{background:var(--orange-light);color:var(--orange-text)}
+.linea-card:nth-child(6) .linea-tag{background:var(--green-light);color:var(--green-text)}
 .linea-title{font-weight:600;font-size:1rem;color:var(--text);margin-bottom:0.75rem;line-height:1.3}
-.linea-desc{font-size:0.87rem;color:var(--muted);font-weight:300;line-height:1.75}
+.linea-desc{font-size:0.87rem;color:var(--muted);font-weight:400;line-height:1.75}
 .linea-conexiones{margin-top:1rem;padding-top:0.75rem;border-top:1px solid var(--border)}
 .linea-conexiones span{font-size:0.72rem;color:var(--muted);font-weight:400}
 
@@ -138,14 +148,15 @@ section{padding:5rem 5%}
 #metodologia{background:var(--navy-light);border-top:1px solid rgba(27,58,107,0.1)}
 .met-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
 .met-item{background:var(--surface);border-radius:8px;padding:1.75rem;border:1px solid var(--border);text-align:center}
-.met-icon{font-size:2rem;margin-bottom:0.75rem}
+.met-icon{width:54px;height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 0.9rem;color:#fff}
+.eco-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:#fff}
 .met-label{font-weight:600;font-size:0.95rem;color:var(--navy);margin-bottom:0.5rem}
-.met-desc{font-size:0.85rem;color:var(--muted);font-weight:300;line-height:1.65}
+.met-desc{font-size:0.85rem;color:var(--muted);font-weight:400;line-height:1.65}
 
 /* TRANSFERENCIA */
 #transferencia{background:var(--surface)}
 .transf-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;align-items:start}
-.transf-text p{font-weight:300;color:var(--muted);line-height:1.85;margin-bottom:1.25rem;font-size:0.96rem}
+.transf-text p{font-weight:400;color:var(--muted);line-height:1.85;margin-bottom:1.25rem;font-size:0.96rem}
 .servicios-list{list-style:none;display:flex;flex-direction:column;gap:0.85rem}
 .servicios-list li{display:flex;align-items:flex-start;gap:0.75rem;font-size:0.91rem;color:var(--text);line-height:1.5;padding:0.75rem;background:var(--bg);border-radius:6px;border-left:3px solid var(--navy)}
 .servicios-list li:nth-child(2){border-left-color:var(--green)}
@@ -172,24 +183,24 @@ section{padding:5rem 5%}
 .miembro-card:nth-child(6) .miembro-avatar{background:var(--navy-mid)}
 .miembro-card:nth-child(7) .miembro-avatar{background:var(--green)}
 .miembro-name{font-weight:600;font-size:0.95rem;color:var(--text);margin-bottom:0.5rem;line-height:1.3}
-.miembro-dept{font-size:0.78rem;color:var(--muted);font-weight:300;line-height:1.5}
+.miembro-dept{font-size:0.78rem;color:var(--muted);font-weight:400;line-height:1.5}
 
 /* CONTACTO */
 #contacto{background:var(--navy);color:#fff}
-#contacto .section-eyebrow{color:var(--orange)}
+#contacto .section-eyebrow{color:var(--orange-on-dark)}
 #contacto .section-title{color:#fff}
 .contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
 .contacto-dato{display:flex;flex-direction:column;margin-bottom:1.5rem}
-.contacto-dato label{font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.5);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.25rem}
+.contacto-dato label{font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.78);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.25rem}
 .contacto-dato span{font-size:0.97rem;font-weight:400;color:rgba(255,255,255,0.92)}
-.contacto-dato a{color:var(--orange);text-decoration:none;font-size:0.97rem;transition:opacity 0.2s}
+.contacto-dato a{color:var(--orange-on-dark);text-decoration:none;font-size:0.97rem;transition:opacity 0.2s}
 .contacto-dato a:hover{opacity:0.8;text-decoration:underline}
 .contacto-redes{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap}
 .red-btn{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.88);font-size:0.85rem;font-weight:500;padding:0.6rem 1.2rem;border-radius:4px;text-decoration:none;border:1px solid rgba(255,255,255,0.2);transition:all 0.2s}
 .red-btn:hover{background:rgba(255,255,255,0.18)}
 .contacto-box{background:rgba(255,255,255,0.08);border-radius:8px;padding:2rem;border:1px solid rgba(255,255,255,0.12)}
-.contacto-box p{font-size:0.9rem;color:rgba(255,255,255,0.78);font-weight:300;line-height:1.8;margin-bottom:1rem}
-.colabs-title{font-size:0.72rem;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.45);text-transform:uppercase;margin:1.25rem 0 0.6rem}
+.contacto-box p{font-size:0.9rem;color:rgba(255,255,255,0.78);font-weight:400;line-height:1.8;margin-bottom:1rem}
+.colabs-title{font-size:0.72rem;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.78);text-transform:uppercase;margin:1.25rem 0 0.6rem}
 .colab-tag{display:inline-block;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.82);font-size:0.78rem;padding:0.25rem 0.65rem;border-radius:2rem;margin:0.2rem;border:1px solid rgba(255,255,255,0.18)}
 
 /* FOOTER */
@@ -198,9 +209,9 @@ footer{background:#0F2044}
 .footer-inner{max-width:1100px;margin:0 auto;padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .footer-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1rem;color:rgba(255,255,255,0.6);letter-spacing:0.04em}
 .footer-logo span{color:var(--orange)}
-footer p{font-size:0.78rem;color:rgba(255,255,255,0.3);font-weight:300}
-footer a{color:rgba(255,255,255,0.45);text-decoration:none}
-footer a:hover{color:var(--orange)}
+footer p{font-size:0.78rem;color:rgba(255,255,255,0.68);font-weight:400}
+footer a{color:rgba(255,255,255,0.8);text-decoration:none}
+footer a:hover{color:var(--orange-on-dark)}
 
 .miembro-socials{display:flex;justify-content:center;gap:0.5rem;margin-top:0.85rem}
 .social-icon{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:5px;transition:opacity 0.2s,transform 0.2s;text-decoration:none;flex-shrink:0}
@@ -213,10 +224,25 @@ footer a:hover{color:var(--orange)}
 @media(max-width:768px){
   .hero-inner,.sobre-grid,.met-grid,.transf-grid,.contacto-grid{grid-template-columns:1fr}
   .hero-right{padding-left:0;border-left:none;border-top:2px solid var(--border);padding-top:2rem}
-  .nav-links,.nav-uma{display:none}
   .footer-inner{flex-direction:column;text-align:center}
   #ecosistema > .section-inner > div{grid-template-columns:1fr !important}
 }
+
+/* MENÚ MÓVIL */
+.breadcrumb span:last-child{color:var(--text);font-weight:500}
+@media(max-width:1180px){.nav-uma{display:none}}
+@media(max-width:1024px){
+  .nav-toggle{display:inline-flex}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 14px 24px rgba(27,58,107,0.10);padding:0.25rem 5% 0.75rem;max-height:calc(100vh - 80px);overflow-y:auto}
+  nav.open .nav-links{display:flex}
+  .nav-links li{border-bottom:1px solid var(--border)}
+  .nav-links li:last-child{border-bottom:none}
+  .nav-links a{display:inline-block;font-size:1rem;margin:0.8rem 0}
+}
+
+/* FORMULARIO */
+.contacto-box ::placeholder{color:rgba(255,255,255,0.75);opacity:1}
+.contacto-box input:focus,.contacto-box textarea:focus{border-color:#fff!important}
 </style>
 </head>
 <body>
@@ -229,17 +255,21 @@ footer a:hover{color:var(--orange)}
       <img src="logo.png" alt="PRACTICE">
       <span class="nav-logo-text">PRACTICE<span>·</span></span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="#sobre">Quiénes somos</a></li>
       <li><a href="#lineas">Líneas de investigación</a></li>
       <li><a href="#transferencia">Transferencia</a></li>
       <li><a href="#equipo">Equipo</a></li>
       <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="publicaciones.html">Publicaciones</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <span class="nav-uma">Universidad de Málaga</span>
-    <span class="nav-uma">Universidad de Málaga</span>
-  </div>
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span class="icon-menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg></span>
+      <span class="icon-close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>
+    </button>
+</div>
 </nav>
 
 <!-- HERO -->
@@ -307,45 +337,45 @@ footer a:hover{color:var(--orange)}
 <!-- ECOSISTEMA -->
 <section id="ecosistema" style="background:var(--navy);padding:5rem 5%;color:#fff">
   <div class="section-inner">
-    <p class="section-eyebrow" style="color:var(--orange)">Un enfoque integrador</p>
+    <p class="section-eyebrow" style="color:var(--orange-on-dark)">Un enfoque integrador</p>
     <h2 class="section-title" style="color:#fff">Un ecosistema de conocimiento interconectado</h2>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;align-items:start">
       <div>
-        <p style="font-size:1.05rem;font-weight:300;color:rgba(255,255,255,0.85);line-height:1.85;margin-bottom:1.25rem">PRACTICE nace de la convicción de que los grandes retos sociales no se resuelven desde una sola disciplina. La <strong style="color:#fff;font-weight:500">pedagogía laboral</strong>, el <strong style="color:#fff;font-weight:500">arte y la creatividad</strong>, la <strong style="color:#fff;font-weight:500">comunidad</strong>, las <strong style="color:#fff;font-weight:500">tecnologías</strong>, la <strong style="color:#fff;font-weight:500">igualdad</strong> y el <strong style="color:#fff;font-weight:500">empleo</strong> no son compartimentos estancos: son dimensiones que se cruzan, se alimentan y se potencian mutuamente en la realidad de las personas.</p>
-        <p style="font-size:0.96rem;font-weight:300;color:rgba(255,255,255,0.72);line-height:1.85;margin-bottom:1.25rem">El grupo investiga en los puntos de intersección: cómo el arte transforma la formación laboral, cómo la tecnología democratiza la participación comunitaria, cómo la igualdad es condición necesaria para el empleo digno, cómo la creatividad abre nuevas formas de inclusión que la ciencia tradicional no alcanza a ver.</p>
-        <p style="font-size:0.96rem;font-weight:300;color:rgba(255,255,255,0.72);line-height:1.85">Esa mirada transversal —científica, creativa, comprometida— es lo que define a PRACTICE y lo que hace única su aportación a la investigación educativa y social en la Universidad de Málaga.</p>
+        <p style="font-size:1.05rem;font-weight:400;color:rgba(255,255,255,0.85);line-height:1.85;margin-bottom:1.25rem">PRACTICE nace de la convicción de que los grandes retos sociales no se resuelven desde una sola disciplina. La <strong style="color:#fff;font-weight:500">pedagogía laboral</strong>, el <strong style="color:#fff;font-weight:500">arte y la creatividad</strong>, la <strong style="color:#fff;font-weight:500">comunidad</strong>, las <strong style="color:#fff;font-weight:500">tecnologías</strong>, la <strong style="color:#fff;font-weight:500">igualdad</strong> y el <strong style="color:#fff;font-weight:500">empleo</strong> no son compartimentos estancos: son dimensiones que se cruzan, se alimentan y se potencian mutuamente en la realidad de las personas.</p>
+        <p style="font-size:0.96rem;font-weight:400;color:rgba(255,255,255,0.88);line-height:1.85;margin-bottom:1.25rem">El grupo investiga en los puntos de intersección: cómo el arte transforma la formación laboral, cómo la tecnología democratiza la participación comunitaria, cómo la igualdad es condición necesaria para el empleo digno, cómo la creatividad abre nuevas formas de inclusión que la ciencia tradicional no alcanza a ver.</p>
+        <p style="font-size:0.96rem;font-weight:400;color:rgba(255,255,255,0.88);line-height:1.85">Esa mirada transversal —científica, creativa, comprometida— es lo que define a PRACTICE y lo que hace única su aportación a la investigación educativa y social en la Universidad de Málaga.</p>
       </div>
       <div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
           <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.25rem;border-top:3px solid var(--navy-mid)">
-            <div style="font-size:1.5rem;margin-bottom:0.5rem">📚</div>
+            <div class="eco-icon" style="background:#3F6FB8"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
             <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.35rem;letter-spacing:0.02em">Pedagogía Laboral</div>
-            <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5">Formación, competencias y aprendizaje a lo largo de la vida</div>
+            <div style="font-size:0.78rem;font-weight:400;color:rgba(255,255,255,0.8);line-height:1.5">Formación, competencias y aprendizaje a lo largo de la vida</div>
           </div>
           <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.25rem;border-top:3px solid var(--purple)">
-            <div style="font-size:1.5rem;margin-bottom:0.5rem">🎨</div>
+            <div class="eco-icon" style="background:#7B4F9E"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".6"/><circle cx="17.5" cy="10.5" r=".6"/><circle cx="8.5" cy="7.5" r=".6"/><circle cx="6.5" cy="12.5" r=".6"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.12-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2z"/></svg></div>
             <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.35rem;letter-spacing:0.02em">Arte y Creatividad</div>
-            <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5">Expresión, metodologías artísticas y transformación social</div>
+            <div style="font-size:0.78rem;font-weight:400;color:rgba(255,255,255,0.8);line-height:1.5">Expresión, metodologías artísticas y transformación social</div>
           </div>
           <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.25rem;border-top:3px solid var(--green)">
-            <div style="font-size:1.5rem;margin-bottom:0.5rem">🤝</div>
+            <div class="eco-icon" style="background:#2D8A4E"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
             <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.35rem;letter-spacing:0.02em">Comunidad</div>
-            <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5">Participación, inclusión y desarrollo local</div>
+            <div style="font-size:0.78rem;font-weight:400;color:rgba(255,255,255,0.8);line-height:1.5">Participación, inclusión y desarrollo local</div>
           </div>
           <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.25rem;border-top:3px solid var(--blue)">
-            <div style="font-size:1.5rem;margin-bottom:0.5rem">💻</div>
+            <div class="eco-icon" style="background:#2C7DA0"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></svg></div>
             <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.35rem;letter-spacing:0.02em">Tecnologías (TIC)</div>
-            <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5">Competencia digital e innovación educativa</div>
+            <div style="font-size:0.78rem;font-weight:400;color:rgba(255,255,255,0.8);line-height:1.5">Competencia digital e innovación educativa</div>
           </div>
           <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.25rem;border-top:3px solid #C0392B">
-            <div style="font-size:1.5rem;margin-bottom:0.5rem">⚖️</div>
+            <div class="eco-icon" style="background:#C0392B"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></div>
             <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.35rem;letter-spacing:0.02em">Igualdad</div>
-            <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5">Diversidad, género y justicia social</div>
+            <div style="font-size:0.78rem;font-weight:400;color:rgba(255,255,255,0.8);line-height:1.5">Diversidad, género y justicia social</div>
           </div>
           <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:1.25rem;border-top:3px solid var(--orange)">
-            <div style="font-size:1.5rem;margin-bottom:0.5rem">💼</div>
+            <div class="eco-icon" style="background:#B25A06"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
             <div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:0.35rem;letter-spacing:0.02em">Empleo</div>
-            <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5">Orientación profesional y transferencia</div>
+            <div style="font-size:0.78rem;font-weight:400;color:rgba(255,255,255,0.8);line-height:1.5">Orientación profesional y transferencia</div>
           </div>
         </div>
       </div>
@@ -410,17 +440,17 @@ footer a:hover{color:var(--orange)}
     <h2 class="section-title">Metodologías innovadoras e interdisciplinares</h2>
     <div class="met-grid">
       <div class="met-item fade-in">
-        <div class="met-icon">📊</div>
+        <div class="met-icon" style="background:#1B3A6B"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div>
         <div class="met-label">Cuantitativa y cualitativa</div>
         <p class="met-desc">Combinamos enfoques cuantitativos, cualitativos y mixtos para obtener una visión rigurosa y completa de la realidad social y educativa.</p>
       </div>
       <div class="met-item fade-in">
-        <div class="met-icon">🎨</div>
+        <div class="met-icon" style="background:#7B4F9E"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".6"/><circle cx="17.5" cy="10.5" r=".6"/><circle cx="8.5" cy="7.5" r=".6"/><circle cx="6.5" cy="12.5" r=".6"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.12-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2z"/></svg></div>
         <div class="met-label">Metodologías artísticas</div>
         <p class="met-desc">Empleamos metodologías basadas en las artes (Arts-Based Research) para acceder a dimensiones de la experiencia que otros enfoques no alcanzan.</p>
       </div>
       <div class="met-item fade-in">
-        <div class="met-icon">🤝</div>
+        <div class="met-icon" style="background:#2D8A4E"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg></div>
         <div class="met-label">Investigación-acción participativa</div>
         <p class="met-desc">La evaluación participativa y los enfoques colaborativos con la comunidad generan conocimiento útil y directamente aplicable.</p>
       </div>
@@ -570,7 +600,7 @@ footer a:hover{color:var(--orange)}
             LinkedIn
           </a>
           <a href="mailto:grupopracticeuma@gmail.com" class="red-btn">
-            ✉ Email
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Email
           </a>
         </div>
       </div>
@@ -578,16 +608,16 @@ footer a:hover{color:var(--orange)}
         <p>PRACTICE es un grupo abierto a la colaboración con instituciones, organismos públicos, entidades sociales, colectivos artísticos y empresas comprometidas con la educación, el empleo y la inclusión.</p>
         <p>Si estás interesado en participar en proyectos conjuntos, encargarnos un estudio o conocer más sobre nuestra actividad, escríbenos directamente:</p>
         <form action="https://formspree.io/f/XXXXXXXX" method="POST" style="margin-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem">
-          <input type="text" name="nombre" placeholder="Tu nombre" required
+          <input type="text" name="nombre" placeholder="Tu nombre" aria-label="Tu nombre" required
             style="padding:0.7rem 1rem;border-radius:5px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;font-family:inherit;font-size:0.9rem;outline:none">
-          <input type="email" name="email" placeholder="Tu correo electrónico" required
+          <input type="email" name="email" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico" required
             style="padding:0.7rem 1rem;border-radius:5px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;font-family:inherit;font-size:0.9rem;outline:none">
-          <input type="text" name="asunto" placeholder="Asunto"
+          <input type="text" name="asunto" placeholder="Asunto" aria-label="Asunto"
             style="padding:0.7rem 1rem;border-radius:5px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;font-family:inherit;font-size:0.9rem;outline:none">
-          <textarea name="mensaje" placeholder="Tu mensaje" required rows="4"
+          <textarea name="mensaje" placeholder="Tu mensaje" aria-label="Tu mensaje" required rows="4"
             style="padding:0.7rem 1rem;border-radius:5px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;font-family:inherit;font-size:0.9rem;outline:none;resize:vertical"></textarea>
           <button type="submit"
-            style="padding:0.75rem 1.5rem;background:var(--orange);color:#fff;border:none;border-radius:5px;font-family:inherit;font-size:0.9rem;font-weight:600;cursor:pointer;transition:opacity 0.2s;text-align:left">
+            style="padding:0.75rem 1.5rem;background:var(--orange-text);color:#fff;border:none;border-radius:5px;font-family:inherit;font-size:0.9rem;font-weight:600;cursor:pointer;transition:opacity 0.2s;text-align:left">
             Enviar mensaje →
           </button>
         </form>
@@ -635,6 +665,47 @@ const observer = new IntersectionObserver((entries) => {
 }, {threshold: 0.1});
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+<button class="to-top" id="toTop" type="button" aria-label="Volver arriba"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></button>
+<script>
+(function(){
+  var nav=document.querySelector('nav'), btn=document.querySelector('.nav-toggle'), links=document.getElementById('nav-links');
+  function setOpen(o){
+    nav.classList.toggle('open',o);
+    btn.setAttribute('aria-expanded',o?'true':'false');
+    btn.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');
+  }
+  btn.addEventListener('click',function(){ setOpen(!nav.classList.contains('open')); });
+  links.addEventListener('click',function(e){ if(e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setOpen(false); });
+  window.addEventListener('resize',function(){ if(window.innerWidth>1024) setOpen(false); });
+
+  var top=document.getElementById('toTop');
+  function onScroll(){ top.classList.toggle('show',window.scrollY>600); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  top.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+})();
+</script>
+<script>
+// Resalta en el menú la sección que se está viendo
+(function(){
+  var items=[].slice.call(document.querySelectorAll('.nav-links a[href^="#"]')).map(function(a){
+    return {a:a, s:document.querySelector(a.getAttribute('href'))};
+  }).filter(function(x){ return x.s; });
+  function update(){
+    var y=window.scrollY+130, cur=null;
+    items.forEach(function(it){ if(it.s.offsetTop<=y) cur=it; });
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) cur=items[items.length-1];
+    items.forEach(function(it){
+      var on=(it===cur);
+      it.a.classList.toggle('active',on);
+      if(on) it.a.setAttribute('aria-current','true'); else it.a.removeAttribute('aria-current');
+    });
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+})();
 </script>
 </body>
 </html>
