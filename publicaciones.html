@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publicaciones — PRACTICE · Universidad de Málaga</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1B3A6B;--navy-mid:#234A89;--navy-light:#EBF0F9;
+  --blue:#2E6DB4;--green:#2D8A4E;--orange:#E8841A;--orange-text:#B25A06;--green-text:#1F6B3A;--orange-on-dark:#F4A44B;--purple:#7B4F9E;
+  --gradient:linear-gradient(90deg,#1B3A6B,#2E6DB4,#2D8A4E,#E8841A);
+  --bg:#F4F6FA;--surface:#FFFFFF;--text:#1A2332;--muted:#5A6A7E;--border:#D4DCE8;
+  --nav-h:70px;
+}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.nav-gradient{height:3px;background:var(--gradient)}
+.nav-inner{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5%}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}
+.nav-logo img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.nav-logo-text{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--navy);letter-spacing:0.04em}
+.nav-logo-text span{color:var(--orange)}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s,border-color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
+.nav-links li:nth-child(1) a:hover,.nav-links li:nth-child(1) a.active{color:var(--navy);border-bottom-color:var(--navy)}
+.nav-links li:nth-child(2) a:hover,.nav-links li:nth-child(2) a.active{color:var(--blue);border-bottom-color:var(--blue)}
+.nav-links li:nth-child(3) a:hover,.nav-links li:nth-child(3) a.active{color:var(--green-text);border-bottom-color:var(--green-text)}
+.nav-links li:nth-child(4) a:hover,.nav-links li:nth-child(4) a.active{color:var(--purple);border-bottom-color:var(--purple)}
+.nav-links li:nth-child(5) a:hover,.nav-links li:nth-child(5) a.active{color:var(--orange-text);border-bottom-color:var(--orange-text)}
+.nav-links li:nth-child(6) a:hover,.nav-links li:nth-child(6) a.active{color:#1F6F8E;border-bottom-color:#1F6F8E}
+.nav-links li:nth-child(7) a:hover,.nav-links li:nth-child(7) a.active{color:var(--green-text);border-bottom-color:var(--green-text)}
+.nav-uma{font-size:0.75rem;color:var(--muted);font-weight:400;letter-spacing:0.01em}
+.nav-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;background:#fff;border:1.5px solid var(--border);border-radius:8px;color:var(--navy);cursor:pointer;transition:background 0.2s,border-color 0.2s}
+.nav-toggle:hover{background:var(--navy-light);border-color:var(--navy)}
+.nav-toggle .icon-close{display:none}
+nav.open .nav-toggle .icon-menu{display:none}
+nav.open .nav-toggle .icon-close{display:block}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.to-top{position:fixed;right:1.25rem;bottom:1.25rem;width:46px;height:46px;border-radius:50%;border:none;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(27,58,107,0.3);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity 0.25s,transform 0.25s,background 0.2s,visibility 0.25s;z-index:90}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--blue)}
+
+/* HEADER */
+.page-header{padding:calc(var(--nav-h) + 3.5rem) 5% 3rem;background:var(--surface);border-bottom:1px solid var(--border)}
+.page-header-inner{max-width:780px;margin:0 auto}
+.breadcrumb{display:flex;align-items:center;gap:0.5rem;margin-bottom:1.25rem;font-size:0.8rem;color:var(--muted)}
+.breadcrumb a{color:var(--muted);text-decoration:none}
+.breadcrumb a:hover{color:var(--navy)}
+.breadcrumb span{color:var(--border)}
+.page-header h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);color:var(--navy);line-height:1.1;margin-bottom:0.75rem}
+.page-header p{font-size:1rem;font-weight:400;color:var(--muted)}
+.header-gradient-line{height:3px;background:var(--gradient);border-radius:2px;margin-top:1.5rem;width:80px}
+
+/* FOOTER */
+footer{background:#0F2044}
+.footer-gradient{height:3px;background:var(--gradient)}
+.footer-inner{max-width:1100px;margin:0 auto;padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1rem;color:rgba(255,255,255,0.6);letter-spacing:0.04em}
+.footer-logo span{color:var(--orange)}
+footer p{font-size:0.78rem;color:rgba(255,255,255,0.68);font-weight:400}
+footer a{color:rgba(255,255,255,0.8);text-decoration:none}
+footer a:hover{color:var(--orange-on-dark)}
+
+@media(max-width:768px){
+  .noticia{padding:1.5rem}
+  .footer-inner{flex-direction:column;text-align:center}
+}
+
+/* MENÚ MÓVIL */
+.breadcrumb span:last-child{color:var(--text);font-weight:500}
+@media(max-width:1180px){.nav-uma{display:none}}
+@media(max-width:1024px){
+  .nav-toggle{display:inline-flex}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 14px 24px rgba(27,58,107,0.10);padding:0.25rem 5% 0.75rem;max-height:calc(100vh - 80px);overflow-y:auto}
+  nav.open .nav-links{display:flex}
+  .nav-links li{border-bottom:1px solid var(--border)}
+  .nav-links li:last-child{border-bottom:none}
+  .nav-links a{display:inline-block;font-size:1rem;margin:0.8rem 0}
+}
+
+/* PUBLICACIONES */
+.page-header-inner{max-width:1100px}
+.pub-wrapper{display:block;padding:3rem 5% 5rem}
+.pub-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2rem}
+.pub-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s}
+.pub-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(27,58,107,0.12)}
+.pub-cover{position:relative;display:block;aspect-ratio:3/4;background:linear-gradient(145deg,var(--navy-light),#DCE6F4);overflow:hidden}
+.pub-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.35s}
+.pub-card:hover .pub-cover img{transform:scale(1.03)}
+.pub-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--navy);opacity:0.4}
+.pub-info{padding:1.1rem 1.25rem 1.4rem;display:flex;flex-direction:column;gap:0.6rem;flex:1}
+.pub-type{align-self:flex-start;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.7rem;border-radius:2rem}
+.pub-type.libro{background:#F3EDF8;color:var(--purple)}
+.pub-type.articulo{background:var(--navy-light);color:var(--navy)}
+.pub-title{font-family:'Playfair Display',serif;font-size:1.05rem;line-height:1.35;font-weight:700}
+.pub-title a{color:var(--navy);text-decoration:none}
+.pub-title a:hover{color:var(--blue);text-decoration:underline}
+.pub-sub{display:block;margin-top:0.35rem;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:400;line-height:1.5;color:var(--muted)}
+.pub-meta{font-size:0.82rem;color:var(--muted);line-height:1.55}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-gradient"></div>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="logo.png" alt="PRACTICE">
+      <span class="nav-logo-text">PRACTICE<span>·</span></span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#sobre">Quiénes somos</a></li>
+      <li><a href="index.html#lineas">Líneas de investigación</a></li>
+      <li><a href="index.html#transferencia">Transferencia</a></li>
+      <li><a href="index.html#equipo">Equipo</a></li>
+      <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="publicaciones.html" class="active" aria-current="page">Publicaciones</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+    <span class="nav-uma">Universidad de Málaga</span>
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span class="icon-menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg></span>
+      <span class="icon-close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>
+    </button>
+</div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">PRACTICE</a>
+      <span>›</span>
+      <span>Publicaciones</span>
+    </div>
+    <h1>Publicaciones</h1>
+    <p>Libros y artículos científicos del grupo de investigación PRACTICE.</p>
+    <div class="header-gradient-line"></div>
+  </div>
+</div>
+
+<main class="pub-wrapper">
+  <div class="pub-grid">
+
+    <!-- ============================================================
+         PARA AÑADIR UNA PUBLICACIÓN NUEVA:
+         1) Copia un bloque <article class="pub-card">...</article>
+         2) Pégalo ENCIMA del primero (lo más reciente va primero)
+         3) Cambia: enlace (2 veces), imagen, título, tipo y datos
+         4) Sube la portada a la carpeta "publicaciones" de GitHub
+         ============================================================ -->
+
+    <article class="pub-card">
+      <a class="pub-cover" href="https://octaedro.com/libro/el-proyecto-edie2o/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <span class="pub-ph"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+        <img src="publicaciones/edie2o.jpeg" alt="Portada del libro El Proyecto EDIE2O" loading="lazy" onerror="this.remove()">
+      </a>
+      <div class="pub-info">
+        <span class="pub-type libro">Libro · 2026</span>
+        <h2 class="pub-title"><a href="https://octaedro.com/libro/el-proyecto-edie2o/" target="_blank" rel="noopener">El Proyecto EDIE2O <span class="pub-sub">Evaluación didáctica de las Escuelas de Segunda Oportunidad de Málaga como recursos de educación inclusiva. El caso de Arrabal AID</span></a></h2>
+        <p class="pub-meta">Coordinado por Francisco José García Aguilera y Adrián Ruiz Tienda<br>Editorial Octaedro · Acceso abierto</p>
+      </div>
+    </article>
+
+    <article class="pub-card">
+      <a class="pub-cover" href="https://doi.org/10.15366/tp2025.45.003" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+        <span class="pub-ph"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+        <img src="publicaciones/tendencias-pedagogicas.jpeg" alt="Portada del artículo en Tendencias Pedagógicas" loading="lazy" onerror="this.remove()">
+      </a>
+      <div class="pub-info">
+        <span class="pub-type articulo">Artículo · 2026</span>
+        <h2 class="pub-title"><a href="https://doi.org/10.15366/tp2025.45.003" target="_blank" rel="noopener">El papel del liderazgo pedagógico inclusivo en la construcción de las prácticas educativas en una Escuela de Segunda Oportunidad</a></h2>
+        <p class="pub-meta">García Aguilera, F. J., Ruiz Tienda, A., Aguilar Cuenca, D. y Álvarez Morales, M. J.<br><em>Tendencias Pedagógicas</em>, 45, 32–49</p>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-gradient"></div>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">PRACTICE<span>·</span> UMA</div>
+      <p>Pedagogía Laboral, Arte, Comunidad, TIC, Igualdad y Empleo</p>
+    </div>
+    <div style="text-align:right">
+      <p><a href="mailto:grupopracticeuma@gmail.com">grupopracticeuma@gmail.com</a></p>
+      <p><a href="https://www.uma.es" target="_blank">Universidad de Málaga</a> · Facultad de Ciencias de la Educación</p>
+      <p style="margin-top:0.5rem">© 2026 PRACTICE. Grupo de I+D · Universidad de Málaga</p>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Volver arriba"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></button>
+<script>
+(function(){
+  var nav=document.querySelector('nav'), btn=document.querySelector('.nav-toggle'), links=document.getElementById('nav-links');
+  function setOpen(o){
+    nav.classList.toggle('open',o);
+    btn.setAttribute('aria-expanded',o?'true':'false');
+    btn.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');
+  }
+  btn.addEventListener('click',function(){ setOpen(!nav.classList.contains('open')); });
+  links.addEventListener('click',function(e){ if(e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setOpen(false); });
+  window.addEventListener('resize',function(){ if(window.innerWidth>1024) setOpen(false); });
+
+  var top=document.getElementById('toTop');
+  function onScroll(){ top.classList.toggle('show',window.scrollY>600); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  top.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+})();
+</script>
+</body>
+</html>
