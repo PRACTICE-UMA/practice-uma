@@ -12,12 +12,12 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --navy:#1B3A6B;--navy-mid:#234A89;--navy-light:#EBF0F9;
-  --blue:#2E6DB4;--green:#2D8A4E;--orange:#E8841A;--purple:#7B4F9E;
+  --blue:#2E6DB4;--green:#2D8A4E;--orange:#E8841A;--orange-text:#B25A06;--green-text:#1F6B3A;--orange-on-dark:#F4A44B;--purple:#7B4F9E;
   --gradient:linear-gradient(90deg,#1B3A6B,#2E6DB4,#2D8A4E,#E8841A);
   --bg:#F4F6FA;--surface:#FFFFFF;--text:#1A2332;--muted:#5A6A7E;--border:#D4DCE8;
   --nav-h:70px;
 }
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.7}
 
 /* NAV */
@@ -28,16 +28,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .nav-logo img{width:42px;height:42px;border-radius:50%;object-fit:cover}
 .nav-logo-text{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--navy);letter-spacing:0.04em}
 .nav-logo-text span{color:var(--orange)}
-.nav-links{display:flex;gap:1.75rem;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;transition:color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
-.nav-links a.active{color:var(--orange);border-bottom-color:var(--orange)}
-.nav-links li:nth-child(1) a:hover{color:var(--navy);border-bottom-color:var(--navy)}
-.nav-links li:nth-child(2) a:hover{color:var(--blue);border-bottom-color:var(--blue)}
-.nav-links li:nth-child(3) a:hover{color:var(--green);border-bottom-color:var(--green)}
-.nav-links li:nth-child(4) a:hover{color:var(--purple);border-bottom-color:var(--purple)}
-.nav-links li:nth-child(5) a:hover{color:var(--orange);border-bottom-color:var(--orange)}
-.nav-links li:nth-child(6) a:hover{color:var(--green);border-bottom-color:var(--green)}
-.nav-uma{font-size:0.75rem;color:var(--muted);font-weight:300}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s,border-color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
+.nav-links li:nth-child(1) a:hover,.nav-links li:nth-child(1) a.active{color:var(--navy);border-bottom-color:var(--navy)}
+.nav-links li:nth-child(2) a:hover,.nav-links li:nth-child(2) a.active{color:var(--blue);border-bottom-color:var(--blue)}
+.nav-links li:nth-child(3) a:hover,.nav-links li:nth-child(3) a.active{color:var(--green-text);border-bottom-color:var(--green-text)}
+.nav-links li:nth-child(4) a:hover,.nav-links li:nth-child(4) a.active{color:var(--purple);border-bottom-color:var(--purple)}
+.nav-links li:nth-child(5) a:hover,.nav-links li:nth-child(5) a.active{color:var(--orange-text);border-bottom-color:var(--orange-text)}
+.nav-links li:nth-child(6) a:hover,.nav-links li:nth-child(6) a.active{color:#1F6F8E;border-bottom-color:#1F6F8E}
+.nav-links li:nth-child(7) a:hover,.nav-links li:nth-child(7) a.active{color:var(--green-text);border-bottom-color:var(--green-text)}
+.nav-uma{font-size:0.75rem;color:var(--muted);font-weight:400;letter-spacing:0.01em}
+.nav-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;background:#fff;border:1.5px solid var(--border);border-radius:8px;color:var(--navy);cursor:pointer;transition:background 0.2s,border-color 0.2s}
+.nav-toggle:hover{background:var(--navy-light);border-color:var(--navy)}
+.nav-toggle .icon-close{display:none}
+nav.open .nav-toggle .icon-menu{display:none}
+nav.open .nav-toggle .icon-close{display:block}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.to-top{position:fixed;right:1.25rem;bottom:1.25rem;width:46px;height:46px;border-radius:50%;border:none;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(27,58,107,0.3);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity 0.25s,transform 0.25s,background 0.2s,visibility 0.25s;z-index:90}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--blue)}
 
 /* HEADER */
 .page-header{padding:calc(var(--nav-h) + 3.5rem) 5% 3rem;background:var(--surface);border-bottom:1px solid var(--border)}
@@ -47,7 +56,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .breadcrumb a:hover{color:var(--navy)}
 .breadcrumb span{color:var(--border)}
 .page-header h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(2rem,4vw,3rem);color:var(--navy);line-height:1.1;margin-bottom:0.75rem}
-.page-header p{font-size:1rem;font-weight:300;color:var(--muted)}
+.page-header p{font-size:1rem;font-weight:400;color:var(--muted)}
 .header-gradient-line{height:3px;background:var(--gradient);border-radius:2px;margin-top:1.5rem;width:80px}
 
 /* ARTÍCULOS */
@@ -66,12 +75,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,
 .noticia-cat{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:2rem}
 .cat-investigacion{background:var(--navy-light);color:var(--navy)}
 .cat-publicacion{background:#F3EDF8;color:var(--purple)}
-.cat-evento{background:#FDF1E3;color:var(--orange)}
-.cat-transferencia{background:#E8F5EE;color:var(--green)}
+.cat-evento{background:#FDF1E3;color:var(--orange-text)}
+.cat-transferencia{background:#E8F5EE;color:var(--green-text)}
 .cat-igualdad{background:#F5F0FF;color:var(--purple)}
 .noticia-fecha{font-size:0.82rem;color:var(--muted)}
 .noticia h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.2rem,2.5vw,1.6rem);color:var(--navy);line-height:1.3;margin-bottom:1.5rem;padding-bottom:1.25rem;border-bottom:1px solid var(--border)}
-.noticia-body p{font-size:0.97rem;color:var(--text);font-weight:300;line-height:1.85;margin-bottom:1rem}
+.noticia-body p{font-size:0.97rem;color:var(--text);font-weight:400;line-height:1.85;margin-bottom:1rem}
 .noticia-body p:last-child{margin-bottom:0}
 .noticia-body strong{font-weight:600;color:var(--text)}
 .noticia-body em{font-style:italic}
@@ -88,15 +97,35 @@ footer{background:#0F2044}
 .footer-inner{max-width:1100px;margin:0 auto;padding:2.5rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .footer-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:1rem;color:rgba(255,255,255,0.6);letter-spacing:0.04em}
 .footer-logo span{color:var(--orange)}
-footer p{font-size:0.78rem;color:rgba(255,255,255,0.3);font-weight:300}
-footer a{color:rgba(255,255,255,0.45);text-decoration:none}
-footer a:hover{color:var(--orange)}
+footer p{font-size:0.78rem;color:rgba(255,255,255,0.68);font-weight:400}
+footer a{color:rgba(255,255,255,0.8);text-decoration:none}
+footer a:hover{color:var(--orange-on-dark)}
 
 @media(max-width:768px){
-  .nav-links,.nav-uma{display:none}
   .noticia{padding:1.5rem}
   .footer-inner{flex-direction:column;text-align:center}
 }
+
+/* MENÚ MÓVIL */
+.breadcrumb span:last-child{color:var(--text);font-weight:500}
+@media(max-width:1180px){.nav-uma{display:none}}
+@media(max-width:1024px){
+  .nav-toggle{display:inline-flex}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 14px 24px rgba(27,58,107,0.10);padding:0.25rem 5% 0.75rem;max-height:calc(100vh - 80px);overflow-y:auto}
+  nav.open .nav-links{display:flex}
+  .nav-links li{border-bottom:1px solid var(--border)}
+  .nav-links li:last-child{border-bottom:none}
+  .nav-links a{display:inline-block;font-size:1rem;margin:0.8rem 0}
+}
+
+/* LEER MÁS */
+.noticia-body.collapsible{position:relative}
+.noticia-body.collapsible.collapsed{max-height:10rem;overflow:hidden}
+.noticia-body.collapsible.collapsed::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5rem;background:linear-gradient(to bottom,rgba(255,255,255,0),#fff)}
+.leer-mas{display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;background:none;border:1.5px solid var(--blue);color:var(--blue);padding:0.5rem 1.1rem;border-radius:4px;font:inherit;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s}
+.leer-mas:hover{background:var(--navy);border-color:var(--navy);color:#fff}
+.leer-mas svg{transition:transform 0.2s}
+.leer-mas[aria-expanded="true"] svg{transform:rotate(180deg)}
 </style>
 </head>
 <body>
@@ -108,16 +137,21 @@ footer a:hover{color:var(--orange)}
       <img src="logo.png" alt="PRACTICE">
       <span class="nav-logo-text">PRACTICE<span>·</span></span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html#sobre">Quiénes somos</a></li>
       <li><a href="index.html#lineas">Líneas de investigación</a></li>
       <li><a href="index.html#transferencia">Transferencia</a></li>
       <li><a href="index.html#equipo">Equipo</a></li>
-      <li><a href="noticias.html" class="active">Noticias</a></li>
+      <li><a href="noticias.html" class="active" aria-current="page">Noticias</a></li>
+      <li><a href="publicaciones.html">Publicaciones</a></li>
       <li><a href="index.html#contacto">Contacto</a></li>
     </ul>
     <span class="nav-uma">Universidad de Málaga</span>
-  </div>
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span class="icon-menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg></span>
+      <span class="icon-close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>
+    </button>
+</div>
 </nav>
 
 <div class="page-header">
@@ -184,7 +218,7 @@ footer a:hover{color:var(--orange)}
   <article class="noticia">
     <div class="noticia-meta">
       <span class="noticia-cat cat-investigacion">Congreso · Jornadas</span>
-      <span class="noticia-fecha">Julio – Octubre de 2026</span>
+      <span class="noticia-fecha">2 de octubre de 2026</span>
     </div>
     <h2>Mª José López Martín presenta dos comunicaciones científicas en Atenas y en Málaga</h2>
     <div class="noticia-body">
@@ -203,7 +237,7 @@ footer a:hover{color:var(--orange)}
   <article class="noticia">
     <div class="noticia-meta">
       <span class="noticia-cat cat-publicacion">Publicación científica</span>
-      <span class="noticia-fecha">2026 · Tendencias Pedagógicas, 45, 32–49</span>
+      <span class="noticia-fecha">2026</span>
     </div>
     <h2>El papel del liderazgo pedagógico inclusivo en la construcción de las prácticas educativas en una Escuela de Segunda Oportunidad</h2>
     <div class="noticia-body">
@@ -239,9 +273,22 @@ footer a:hover{color:var(--orange)}
     </div>
     <h2>Publicado un libro sobre las Escuelas de Segunda Oportunidad como recurso de educación inclusiva</h2>
     <div class="noticia-body">
-      <p>La Universidad de Málaga ha publicado el libro <em>El proyecto EDIE20</em>, coordinado por los investigadores de PRACTICE <strong>Francisco José García Aguilera</strong> y <strong>Adrián Ruiz Tienda</strong>, en colaboración con la Facultad de Ciencias de la Educación de la UMA, la UNIR y Arrabal-AID.</p>
+      <p>La Universidad de Málaga ha publicado el libro <em>El proyecto EDIE2O</em>, coordinado por los investigadores de PRACTICE <strong>Francisco José García Aguilera</strong> y <strong>Adrián Ruiz Tienda</strong>, en colaboración con la Facultad de Ciencias de la Educación de la UMA, la UNIR y Arrabal-AID.</p>
       <p>La obra analiza las Escuelas de Segunda Oportunidad como recurso de educación inclusiva y ha sido editada por Octaedro en acceso abierto, lo que permite su descarga y difusión libre.</p>
       <a href="https://www.uma.es/sala-de-prensa/noticias/publicado-un-libro-que-analiza-las-escuelas-de-segunda-oportunidad-como-recurso-de-educacion-inclusiva/" target="_blank" class="noticia-link-ext">Leer noticia completa en UMA</a>
+    </div>
+  </article>
+
+  <article class="noticia">
+    <div class="noticia-meta">
+      <span class="noticia-cat cat-investigacion">I+D+i UMA</span>
+      <span class="noticia-fecha">11 de junio de 2026</span>
+    </div>
+    <h2>PRACTICE, un nuevo grupo de I+D para avanzar en pedagogía laboral, inclusión, tecnología e igualdad</h2>
+    <div class="noticia-body">
+      <p>La Universidad de Málaga ha constituido el grupo de investigación <strong>PRACTICE</strong>, una nueva estructura científica adscrita al área de Ciencias de la Educación. Impulsado por la profesora <strong>Esther Mena</strong>, trabajará en los ámbitos de la formación, el empleo y el desarrollo comunitario.</p>
+      <p>Su acrónimo integra ocho ejes fundamentales: <strong>Pedagogía, Relaciones, Arte, Comunidad, Tecnologías, Igualdad, Conocimiento y Empleo</strong>, reflejando un enfoque interdisciplinar orientado a generar conocimiento con impacto real en la sociedad.</p>
+      <a href="https://www.uma.es/sala-de-prensa/noticias/practice-un-nuevo-grupo-de-id-para-avanzar-en-pedagogia-laboral-inclusion-tecnologia-e-igualdad/" target="_blank" class="noticia-link-ext">Leer noticia completa en UMA</a>
     </div>
   </article>
 
@@ -259,19 +306,6 @@ footer a:hover{color:var(--orange)}
       <p>Durante la sesión se abordó la importancia del lenguaje como elemento que contribuye a construir la realidad social y la necesidad de utilizar formas de comunicación que visibilicen la diversidad de las personas y eviten la reproducción de estereotipos y desigualdades de género. Asimismo, se profundizó en el concepto de interseccionalidad, analizando cómo distintos ejes de desigualdad —como el género, la edad, la discapacidad, el origen o la orientación sexual— pueden interactuar y generar situaciones de discriminación múltiple.</p>
       <p>La actividad combinó contenidos teóricos con ejemplos prácticos y estrategias aplicables al ámbito universitario y sanitario, favoreciendo la reflexión crítica sobre el uso cotidiano del lenguaje y proporcionando herramientas para una comunicación más respetuosa, precisa e inclusiva.</p>
       <p>Con este tipo de iniciativas, la Universidad de Málaga reafirma su compromiso con la promoción de la igualdad de género, la sensibilización de su comunidad universitaria y la incorporación de la perspectiva de género como un eje transversal de la docencia, la investigación y la gestión universitaria.</p>
-    </div>
-  </article>
-
-  <article class="noticia">
-    <div class="noticia-meta">
-      <span class="noticia-cat cat-investigacion">I+D+i UMA</span>
-      <span class="noticia-fecha">11 de junio de 2026</span>
-    </div>
-    <h2>PRACTICE, un nuevo grupo de I+D para avanzar en pedagogía laboral, inclusión, tecnología e igualdad</h2>
-    <div class="noticia-body">
-      <p>La Universidad de Málaga ha constituido el grupo de investigación <strong>PRACTICE</strong>, una nueva estructura científica adscrita al área de Ciencias de la Educación. Impulsado por la profesora <strong>Esther Mena</strong>, trabajará en los ámbitos de la formación, el empleo y el desarrollo comunitario.</p>
-      <p>Su acrónimo integra ocho ejes fundamentales: <strong>Pedagogía, Relaciones, Arte, Comunidad, Tecnologías, Igualdad, Conocimiento y Empleo</strong>, reflejando un enfoque interdisciplinar orientado a generar conocimiento con impacto real en la sociedad.</p>
-      <a href="https://www.uma.es/sala-de-prensa/noticias/practice-un-nuevo-grupo-de-id-para-avanzar-en-pedagogia-laboral-inclusion-tecnologia-e-igualdad/" target="_blank" class="noticia-link-ext">Leer noticia completa en UMA</a>
     </div>
   </article>
 
@@ -306,5 +340,59 @@ footer a:hover{color:var(--orange)}
   </div>
 </footer>
 
+<button class="to-top" id="toTop" type="button" aria-label="Volver arriba"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg></button>
+<script>
+(function(){
+  var nav=document.querySelector('nav'), btn=document.querySelector('.nav-toggle'), links=document.getElementById('nav-links');
+  function setOpen(o){
+    nav.classList.toggle('open',o);
+    btn.setAttribute('aria-expanded',o?'true':'false');
+    btn.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');
+  }
+  btn.addEventListener('click',function(){ setOpen(!nav.classList.contains('open')); });
+  links.addEventListener('click',function(e){ if(e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setOpen(false); });
+  window.addEventListener('resize',function(){ if(window.innerWidth>1024) setOpen(false); });
+
+  var top=document.getElementById('toTop');
+  function onScroll(){ top.classList.toggle('show',window.scrollY>600); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  top.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+})();
+</script>
+<script>
+// "Leer más" desplegable en cada noticia
+(function(){
+  var chev='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+  function build(article){
+    var body=article.querySelector('.noticia-body');
+    if(!body) return;
+    var btn=article.querySelector('.leer-mas');
+    if(!btn){
+      body.classList.add('collapsible','collapsed');
+      btn=document.createElement('button');
+      btn.type='button'; btn.className='leer-mas'; btn.setAttribute('aria-expanded','false');
+      btn.innerHTML='<span>Leer más</span>'+chev;
+      body.insertAdjacentElement('afterend',btn);
+      btn.addEventListener('click',function(){
+        var open=btn.getAttribute('aria-expanded')==='true';
+        body.classList.toggle('collapsed',open);
+        btn.setAttribute('aria-expanded',open?'false':'true');
+        btn.firstChild.textContent=open?'Leer más':'Leer menos';
+        if(open){ var r=article.getBoundingClientRect(); if(r.top<80) article.scrollIntoView({block:'start'}); }
+      });
+    }
+    // Si la noticia es corta, no hace falta el botón
+    if(btn.getAttribute('aria-expanded')!=='true'){
+      var overflow=body.scrollHeight-body.clientHeight;
+      if(overflow<60){ body.classList.remove('collapsible','collapsed'); btn.remove(); }
+    }
+  }
+  function init(){ document.querySelectorAll('.noticia').forEach(build); }
+  document.addEventListener('DOMContentLoaded',init);
+  if(document.readyState!=='loading') init();
+  window.addEventListener('load',init);
+})();
+</script>
 </body>
 </html>
