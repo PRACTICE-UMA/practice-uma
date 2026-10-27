@@ -126,6 +126,22 @@ footer a:hover{color:var(--orange-on-dark)}
 .leer-mas:hover{background:var(--navy);border-color:var(--navy);color:#fff}
 .leer-mas svg{transition:transform 0.2s}
 .leer-mas[aria-expanded="true"] svg{transform:rotate(180deg)}
+
+/* CURSO / CARTEL */
+.curso-destacado{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:1.75rem;align-items:start;margin:0 0 1.75rem}
+.curso-destacado.sin-cartel{grid-template-columns:1fr}
+.curso-cartel{display:block;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--navy-light);transition:box-shadow 0.2s}
+.curso-cartel:hover{box-shadow:0 8px 22px rgba(27,58,107,0.15)}
+.curso-cartel img{display:block;width:100%;height:auto}
+.curso-datos{background:var(--bg);border:1px solid var(--border);border-left:4px solid var(--green);border-radius:8px;padding:1.25rem 1.4rem}
+.curso-datos h3{font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--green-text);margin-bottom:1rem}
+.curso-datos dl{display:grid;gap:0.8rem;margin:0}
+.curso-datos dt{font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.curso-datos dd{font-size:0.95rem;color:var(--text);margin:0.1rem 0 0}
+.curso-datos dd strong{color:var(--green-text)}
+.programa-lista{margin:0.5rem 0 1rem 1.25rem}
+.programa-lista li{font-size:0.95rem;line-height:1.6;margin-bottom:0.4rem}
+@media(max-width:700px){.curso-destacado{grid-template-columns:1fr}.curso-cartel{max-width:340px;margin:0 auto}}
 </style>
 </head>
 <body>
@@ -172,6 +188,51 @@ footer a:hover{color:var(--orange-on-dark)}
   <!-- ============================================================
        PEGA LAS NOTICIAS MÁS RECIENTES AQUÍ ARRIBA
        ============================================================ -->
+
+  <article class="noticia">
+    <div class="noticia-meta">
+      <span class="noticia-cat cat-transferencia">Formación · Curso UMA</span>
+      <span class="noticia-fecha">27 de octubre de 2026</span>
+    </div>
+    <h2>La investigadora de PRACTICE Victoria Márquez imparte parte del I Certificado de Extensión Universitaria en Competencias Transversales de la UMA</h2>
+
+    <div class="curso-destacado">
+      <a class="curso-cartel" href="noticias/cartel-certificado-competencias.jpeg" target="_blank" rel="noopener" aria-label="Ver el cartel del curso a tamaño completo">
+        <img src="noticias/cartel-certificado-competencias.jpeg" alt="Cartel del I Certificado de Extensión Universitaria de Formación en Competencias Transversales" onerror="this.closest('.curso-destacado').classList.add('sin-cartel');this.closest('.curso-cartel').remove()">
+      </a>
+      <div class="curso-datos">
+        <h3>Datos del curso</h3>
+        <dl>
+          <div><dt>Matrícula</dt><dd><strong>Del 26 al 30 de octubre de 2026</strong></dd></div>
+          <div><dt>Preinscripción</dt><dd>Del 12 al 25 de octubre de 2026</dd></div>
+          <div><dt>Fechas del curso</dt><dd>Del 5 de noviembre al 5 de diciembre de 2026</dd></div>
+          <div><dt>Lugar</dt><dd>Facultad de Ciencias de la Educación (UMA)</dd></div>
+          <div><dt>Horario</dt><dd>De 12:00 a 14:00 o de 16:00 a 19:00, según los módulos y en diferentes días</dd></div>
+          <div><dt>Duración</dt><dd>2,5 ECTS · 25 horas de clase presencial</dd></div>
+          <div><dt>Dirigido a</dt><dd>Alumnado matriculado en títulos oficiales de grado y máster de la Universidad de Málaga durante el curso 2026/2027</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="noticia-body">
+      <p>La <strong>Dra. Victoria Márquez</strong>, investigadora del grupo PRACTICE, participa como docente en el <strong>I Certificado de Extensión Universitaria de Formación en Competencias Transversales para el diseño y gestión de procesos, entornos y proyectos generadores de transformación en contextos formativos y profesionalizadores</strong>, una formación que se imparte en la Facultad de Ciencias de la Educación de la Universidad de Málaga.</p>
+      <p>El plazo de matrícula está abierto del 26 al 30 de octubre de 2026 y el curso comienza el 5 de noviembre. La propuesta reúne diez módulos que van desde el pensamiento crítico y la innovación social hasta el Diseño Universal de Aprendizaje, las competencias digitales, la creatividad y la empleabilidad.</p>
+      <p><strong>Programa</strong></p>
+      <ol class="programa-lista">
+        <li>Pensamiento crítico, participación activa e innovación social.</li>
+        <li>Inteligencia emocional y creatividad: la llave para la educación del siglo XXI.</li>
+        <li>Claves en el diseño de proyectos basados en retos a través de metodologías ágiles.</li>
+        <li>Competencias digitales y empleabilidad. Competencias para aprender a emprender.</li>
+        <li>Diseño Universal de Aprendizaje (DUA) para una Educación Inclusiva y de calidad.</li>
+        <li>Grupos cooperativos de investigación.</li>
+        <li>Diseño de contenidos didácticos de formato SCORM.</li>
+        <li>Análisis y estrategias de aprendizaje para facilitar la comunicación expositiva.</li>
+        <li>El arte como herramienta transformadora de habilidades y contextos formativos.</li>
+        <li>Creatividad y empleo. El proceso creativo en la realización de un videocurriculum para la búsqueda de empleo.</li>
+      </ol>
+      <a href="https://www.ensenanzaspropias.uma.es/informacion_curso.php?id_curso=6904431" target="_blank" rel="noopener" class="noticia-link-ext">Más información y matrícula</a>
+    </div>
+  </article>
 
   <article class="noticia">
     <div class="noticia-meta">
