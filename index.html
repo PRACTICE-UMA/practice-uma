@@ -6,6 +6,10 @@
 <title>PRACTICE — Grupo de Investigación · Universidad de Málaga</title>
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
+<script>
+// Aplica el tema guardado (o el del sistema) antes de pintar la página, para evitar parpadeos
+(function(){try{var t=localStorage.getItem('practice-theme');if(!t){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -15,7 +19,7 @@
   --blue:#2E6DB4;
   --green:#2D8A4E;
   --green-light:#E8F5EE;
-  --orange:#E8841A;--orange-text:#B25A06;--green-text:#1F6B3A;--orange-on-dark:#F4A44B;
+  --orange:#E8841A;--orange-text:#9C4F00;--green-text:#1F6B3A;--orange-on-dark:#F4A44B;
   --orange-light:#FDF1E3;
   --purple:#7B4F9E;
   --gradient:linear-gradient(90deg,#1B3A6B,#2E6DB4,#2D8A4E,#E8841A);
@@ -33,25 +37,25 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);fon
 .gradient-bar{height:4px;background:var(--gradient);width:100%}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
 .nav-gradient{height:3px;background:var(--gradient)}
 .nav-inner{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5%}
 .nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}
 .nav-logo img{width:42px;height:42px;border-radius:50%;object-fit:cover}
-.nav-logo-text{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--navy);letter-spacing:0.04em}
+.nav-logo-text{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--heading);letter-spacing:0.04em}
 .nav-logo-text span{color:var(--orange)}
 .nav-links{display:flex;gap:1.5rem;list-style:none}
 .nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s,border-color 0.2s;padding-bottom:2px;border-bottom:2px solid transparent}
-.nav-links li:nth-child(1) a:hover,.nav-links li:nth-child(1) a.active{color:var(--navy);border-bottom-color:var(--navy)}
-.nav-links li:nth-child(2) a:hover,.nav-links li:nth-child(2) a.active{color:var(--blue);border-bottom-color:var(--blue)}
+.nav-links li:nth-child(1) a:hover,.nav-links li:nth-child(1) a.active{color:var(--heading);border-bottom-color:var(--heading)}
+.nav-links li:nth-child(2) a:hover,.nav-links li:nth-child(2) a.active{color:var(--blue-text);border-bottom-color:var(--blue-text)}
 .nav-links li:nth-child(3) a:hover,.nav-links li:nth-child(3) a.active{color:var(--green-text);border-bottom-color:var(--green-text)}
-.nav-links li:nth-child(4) a:hover,.nav-links li:nth-child(4) a.active{color:var(--purple);border-bottom-color:var(--purple)}
+.nav-links li:nth-child(4) a:hover,.nav-links li:nth-child(4) a.active{color:var(--purple-text);border-bottom-color:var(--purple-text)}
 .nav-links li:nth-child(5) a:hover,.nav-links li:nth-child(5) a.active{color:var(--orange-text);border-bottom-color:var(--orange-text)}
-.nav-links li:nth-child(6) a:hover,.nav-links li:nth-child(6) a.active{color:#1F6F8E;border-bottom-color:#1F6F8E}
+.nav-links li:nth-child(6) a:hover,.nav-links li:nth-child(6) a.active{color:var(--teal-text);border-bottom-color:var(--teal-text)}
 .nav-links li:nth-child(7) a:hover,.nav-links li:nth-child(7) a.active{color:var(--green-text);border-bottom-color:var(--green-text)}
 .nav-uma{font-size:0.75rem;color:var(--muted);font-weight:400;letter-spacing:0.01em}
-.nav-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;background:#fff;border:1.5px solid var(--border);border-radius:8px;color:var(--navy);cursor:pointer;transition:background 0.2s,border-color 0.2s}
-.nav-toggle:hover{background:var(--navy-light);border-color:var(--navy)}
+.nav-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;background:var(--surface);border:1.5px solid var(--border);border-radius:8px;color:var(--heading);cursor:pointer;transition:background 0.2s,border-color 0.2s}
+.nav-toggle:hover{background:var(--navy-light);border-color:var(--heading)}
 .nav-toggle .icon-close{display:none}
 nav.open .nav-toggle .icon-menu{display:none}
 nav.open .nav-toggle .icon-close{display:block}
@@ -68,8 +72,8 @@ nav.open .nav-toggle .icon-close{display:block}
 .hero-logo-badge img{width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid var(--border)}
 .hero-logo-info{display:flex;flex-direction:column}
 .hero-logo-info small{font-size:0.75rem;color:var(--muted);font-weight:400;letter-spacing:0.04em;text-transform:uppercase}
-.hero-logo-info strong{font-size:0.9rem;color:var(--navy);font-weight:600}
-.hero-left h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3.5rem,6.5vw,5.5rem);line-height:1;color:var(--navy);letter-spacing:-0.01em}
+.hero-logo-info strong{font-size:0.9rem;color:var(--heading);font-weight:600}
+.hero-left h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(3.5rem,6.5vw,5.5rem);line-height:1;color:var(--heading);letter-spacing:-0.01em}
 .hero-left h1 .dot{color:var(--orange)}
 .hero-tagline{margin-top:1.25rem;font-size:1.05rem;font-weight:400;color:var(--muted);line-height:1.7;max-width:420px}
 .hero-tagline strong{font-weight:500;color:var(--text)}
@@ -78,22 +82,22 @@ nav.open .nav-toggle .icon-close{display:block}
 .btn{display:inline-block;text-decoration:none;font-size:0.88rem;font-weight:500;padding:0.7rem 1.6rem;border-radius:5px;transition:all 0.2s;letter-spacing:0.02em;cursor:pointer}
 .btn-primary{background:var(--navy);color:#fff}
 .btn-primary:hover{background:var(--navy-mid)}
-.btn-secondary{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+.btn-secondary{background:transparent;color:var(--heading);border:1.5px solid var(--heading)}
 .btn-secondary:hover{background:var(--navy-light)}
-.btn-orange{background:var(--orange-text);color:#fff}
+.btn-orange{background:var(--orange-btn);color:#fff}
 .btn-orange:hover{opacity:0.9}
 .hero-right{border-left:2px solid var(--border);padding-left:2.5rem}
 .acronym-row{display:flex;align-items:baseline;gap:1rem;padding:0.6rem 0;border-bottom:1px solid var(--border);opacity:0;transform:translateX(20px);transition:opacity 0.5s ease,transform 0.5s ease}
 .acronym-row:last-child{border-bottom:none}
 .acronym-row.visible{opacity:1;transform:translateX(0)}
 .acronym-letter{font-family:'Playfair Display',serif;font-weight:900;font-size:1.7rem;min-width:1.5rem;line-height:1}
-.acronym-row:nth-child(1) .acronym-letter{color:var(--navy)}
-.acronym-row:nth-child(2) .acronym-letter{color:var(--blue)}
-.acronym-row:nth-child(3) .acronym-letter{color:var(--purple)}
-.acronym-row:nth-child(4) .acronym-letter{color:var(--green)}
-.acronym-row:nth-child(5) .acronym-letter{color:var(--blue)}
-.acronym-row:nth-child(6) .acronym-letter{color:var(--green)}
-.acronym-row:nth-child(7) .acronym-letter{color:var(--navy)}
+.acronym-row:nth-child(1) .acronym-letter{color:var(--heading)}
+.acronym-row:nth-child(2) .acronym-letter{color:var(--blue-text)}
+.acronym-row:nth-child(3) .acronym-letter{color:var(--purple-text)}
+.acronym-row:nth-child(4) .acronym-letter{color:var(--green-text)}
+.acronym-row:nth-child(5) .acronym-letter{color:var(--blue-text)}
+.acronym-row:nth-child(6) .acronym-letter{color:var(--green-text)}
+.acronym-row:nth-child(7) .acronym-letter{color:var(--heading)}
 .acronym-row:nth-child(8) .acronym-letter{color:var(--orange-text)}
 .acronym-word{font-size:0.88rem;font-weight:500;color:var(--text)}
 .acronym-word em{font-style:normal;font-weight:400;color:var(--muted);margin-left:0.3rem;font-size:0.8rem}
@@ -102,7 +106,7 @@ nav.open .nav-toggle .icon-close{display:block}
 section{padding:5rem 5%}
 .section-inner{max-width:1100px;margin:0 auto;width:100%}
 .section-eyebrow{font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange-text);margin-bottom:0.65rem}
-.section-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.75rem,3vw,2.4rem);color:var(--navy);line-height:1.2;margin-bottom:1.25rem}
+.section-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.75rem,3vw,2.4rem);color:var(--heading);line-height:1.2;margin-bottom:1.25rem}
 .section-lead{font-size:1rem;font-weight:400;color:var(--muted);max-width:680px;line-height:1.8}
 
 /* SOBRE */
@@ -131,12 +135,12 @@ section{padding:5rem 5%}
 .linea-card:nth-child(5)::before{background:var(--orange)}
 .linea-card:nth-child(6)::before{background:var(--green)}
 .linea-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(27,58,107,0.1)}
-.linea-num{font-family:'Playfair Display',serif;font-weight:900;font-size:2.2rem;line-height:1;margin-bottom:0.5rem;opacity:0.1;color:var(--navy)}
+.linea-num{font-family:'Playfair Display',serif;font-weight:900;font-size:2.2rem;line-height:1;margin-bottom:0.5rem;opacity:0.1;color:var(--heading)}
 .linea-tag{display:inline-block;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2rem;margin-bottom:0.75rem}
-.linea-card:nth-child(1) .linea-tag{background:var(--navy-light);color:var(--navy)}
+.linea-card:nth-child(1) .linea-tag{background:var(--navy-light);color:var(--heading)}
 .linea-card:nth-child(2) .linea-tag{background:var(--green-light);color:var(--green-text)}
-.linea-card:nth-child(3) .linea-tag{background:#F3EDF8;color:var(--purple)}
-.linea-card:nth-child(4) .linea-tag{background:#EBF3FB;color:var(--blue)}
+.linea-card:nth-child(3) .linea-tag{background:var(--purple-light);color:var(--purple-text)}
+.linea-card:nth-child(4) .linea-tag{background:var(--blue-light);color:var(--blue-text)}
 .linea-card:nth-child(5) .linea-tag{background:var(--orange-light);color:var(--orange-text)}
 .linea-card:nth-child(6) .linea-tag{background:var(--green-light);color:var(--green-text)}
 .linea-title{font-weight:600;font-size:1rem;color:var(--text);margin-bottom:0.75rem;line-height:1.3}
@@ -150,7 +154,7 @@ section{padding:5rem 5%}
 .met-item{background:var(--surface);border-radius:8px;padding:1.75rem;border:1px solid var(--border);text-align:center}
 .met-icon{width:54px;height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 0.9rem;color:#fff}
 .eco-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;color:#fff}
-.met-label{font-weight:600;font-size:0.95rem;color:var(--navy);margin-bottom:0.5rem}
+.met-label{font-weight:600;font-size:0.95rem;color:var(--heading);margin-bottom:0.5rem}
 .met-desc{font-size:0.85rem;color:var(--muted);font-weight:400;line-height:1.65}
 
 /* TRANSFERENCIA */
@@ -233,7 +237,7 @@ footer a:hover{color:var(--orange-on-dark)}
 @media(max-width:1180px){.nav-uma{display:none}}
 @media(max-width:1024px){
   .nav-toggle{display:inline-flex}
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 14px 24px rgba(27,58,107,0.10);padding:0.25rem 5% 0.75rem;max-height:calc(100vh - 80px);overflow-y:auto}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:0 14px 24px rgba(27,58,107,0.10);padding:0.25rem 5% 0.75rem;max-height:calc(100vh - 80px);overflow-y:auto}
   nav.open .nav-links{display:flex}
   .nav-links li{border-bottom:1px solid var(--border)}
   .nav-links li:last-child{border-bottom:none}
@@ -243,6 +247,30 @@ footer a:hover{color:var(--orange-on-dark)}
 /* FORMULARIO */
 .contacto-box ::placeholder{color:rgba(255,255,255,0.75);opacity:1}
 .contacto-box input:focus,.contacto-box textarea:focus{border-color:#fff!important}
+:root{--heading:#1B3A6B;--blue-text:#2E6DB4;--purple-text:#7B4F9E;--teal-text:#1F6F8E;--green-light:#E8F5EE;--orange-light:#FDF1E3;--purple-light:#F3EDF8;--blue-light:#EBF3FB;--orange-btn:#B25A06;--nav-bg:rgba(255,255,255,0.97);--cover-a:#EBF0F9;--cover-b:#DCE6F4;--fade-clear:rgba(255,255,255,0)}
+
+/* MODO OSCURO */
+.nav-actions{display:flex;align-items:center;gap:0.75rem}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;background:var(--surface);border:1.5px solid var(--border);border-radius:8px;color:var(--heading);cursor:pointer;transition:background 0.2s,border-color 0.2s}
+.theme-toggle:hover{background:var(--navy-light);border-color:var(--heading)}
+.theme-toggle .icon-sun{display:none}
+:root[data-theme="dark"] .theme-toggle .icon-moon{display:none}
+:root[data-theme="dark"] .theme-toggle .icon-sun{display:inline-flex}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --heading:#B5CCF2;
+  --blue-text:#8DB8F2;--purple-text:#C9A9EC;--green-text:#7FD6A0;--orange-text:#F4A44B;--teal-text:#6EC3E0;
+  --bg:#0D1422;--surface:#151F33;--text:#E4E9F1;--muted:#A9B6CA;--border:#2B3955;
+  --navy-light:#1B2A47;
+  --green-light:#13301F;--orange-light:#3A2610;--purple-light:#2B2143;--blue-light:#16294A;
+  --nav-bg:rgba(13,20,34,0.94);
+  --cover-a:#1B2740;--cover-b:#142038;
+  --fade-clear:rgba(21,31,51,0);
+}
+:root[data-theme="dark"] .to-top{border:1px solid rgba(255,255,255,0.25)}
+:root[data-theme="dark"] .linea-card:nth-child(1)::before{background:var(--blue-text)}
+:root[data-theme="dark"] .servicios-list li:nth-child(1),:root[data-theme="dark"] .servicios-list li:nth-child(6){border-left-color:var(--blue-text)}
+:root[data-theme="dark"] .miembro-card img{opacity:0.95}
 </style>
 </head>
 <body>
@@ -264,11 +292,14 @@ footer a:hover{color:var(--orange-on-dark)}
       <li><a href="publicaciones.html">Publicaciones</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
-    <span class="nav-uma">Universidad de Málaga</span>
-    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+    <div class="nav-actions">
+      <span class="nav-uma">Universidad de Málaga</span>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar a modo oscuro" aria-pressed="false"><span class="icon-moon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span><span class="icon-sun"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></span></button>
+      <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
       <span class="icon-menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg></span>
       <span class="icon-close"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>
     </button>
+    </div>
 </div>
 </nav>
 
@@ -528,7 +559,7 @@ footer a:hover{color:var(--orange-on-dark)}
         <div class="miembro-socials"><a href="https://www.linkedin.com/in/diegoaguilarcuenca/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://orcid.org/0000-0001-5336-2687" target="_blank" class="social-icon orcid" title="ORCID"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.862 3.872-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.285z"/></svg></a></div>
       </div>
       <div class="miembro-card fade-in">
-        <div class="miembro-avatar" style="background:var(--orange)"><img src="fotos/estefania.jpg" alt="Estefanía Cestino" onerror="this.style.display='none';this.parentElement.innerHTML='EC'">EC</div>
+        <div class="miembro-avatar" style="background:var(--orange-btn)"><img src="fotos/estefania.jpg" alt="Estefanía Cestino" onerror="this.style.display='none';this.parentElement.innerHTML='EC'">EC</div>
         <div class="miembro-name">Dra. Estefanía Cestino González</div>
         <div class="miembro-dept">Facultad de Ciencias de la Educación<br>Universidad de Málaga</div>
         <div class="miembro-socials"><a href="https://www.linkedin.com/in/estefania-cestino-gonzalez-578023164/" target="_blank" class="social-icon linkedin" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://orcid.org/0000-0002-2436-8665" target="_blank" class="social-icon orcid" title="ORCID"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.862 3.872-3.722 0-2.016-1.284-3.722-3.884-3.722h-2.285z"/></svg></a></div>
@@ -617,7 +648,7 @@ footer a:hover{color:var(--orange-on-dark)}
           <textarea name="mensaje" placeholder="Tu mensaje" aria-label="Tu mensaje" required rows="4"
             style="padding:0.7rem 1rem;border-radius:5px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#fff;font-family:inherit;font-size:0.9rem;outline:none;resize:vertical"></textarea>
           <button type="submit"
-            style="padding:0.75rem 1.5rem;background:var(--orange-text);color:#fff;border:none;border-radius:5px;font-family:inherit;font-size:0.9rem;font-weight:600;cursor:pointer;transition:opacity 0.2s;text-align:left">
+            style="padding:0.75rem 1.5rem;background:var(--orange-btn);color:#fff;border:none;border-radius:5px;font-family:inherit;font-size:0.9rem;font-weight:600;cursor:pointer;transition:opacity 0.2s;text-align:left">
             Enviar mensaje →
           </button>
         </form>
@@ -705,6 +736,26 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   window.addEventListener('scroll',update,{passive:true});
   window.addEventListener('resize',update);
   update();
+})();
+</script>
+<script>
+// Botón de modo claro / oscuro
+(function(){
+  var b=document.getElementById('themeToggle'); if(!b) return;
+  var root=document.documentElement;
+  function apply(t,save){
+    root.setAttribute('data-theme',t);
+    b.setAttribute('aria-pressed',t==='dark'?'true':'false');
+    b.setAttribute('aria-label',t==='dark'?'Cambiar a modo claro':'Cambiar a modo oscuro');
+    if(save){ try{ localStorage.setItem('practice-theme',t); }catch(e){} }
+  }
+  apply(root.getAttribute('data-theme')||'light',false);
+  b.addEventListener('click',function(){ apply(root.getAttribute('data-theme')==='dark'?'light':'dark',true); });
+  if(window.matchMedia){
+    var mq=matchMedia('(prefers-color-scheme: dark)');
+    var h=function(e){ var s=null; try{s=localStorage.getItem('practice-theme');}catch(x){} if(!s) apply(e.matches?'dark':'light',false); };
+    if(mq.addEventListener) mq.addEventListener('change',h);
+  }
 })();
 </script>
 </body>
